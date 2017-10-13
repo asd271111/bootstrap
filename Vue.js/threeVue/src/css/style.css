@@ -1,0 +1,78 @@
+@font-face {
+  font-family: 'header';
+  src:  url('fonts/header.eot?wqb6jp');
+  src:  url('fonts/header.eot?wqb6jp#iefix') format('embedded-opentype'),
+    url('fonts/header.ttf?wqb6jp') format('truetype'),
+    url('fonts/header.woff?wqb6jp') format('woff'),
+    url('fonts/header.svg?wqb6jp#header') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="hdicon-"], [class*=" hdicon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'header' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hdicon-list2:before {
+  content: "\e9bb";
+}
+.hdicon-play3:before {
+  content: "\ea1c";
+}
+.hdicon-pause2:before {
+  content: "\ea1d";
+}
+.hdicon-previous2:before {
+  content: "\ea23";
+}
+.hdicon-next2:before {
+  content: "\ea24";
+}
+.hdicon-loop:before {
+  content: "\ea2d";
+}
+
+@font-face {
+  font-family: 'up-d';
+  src:  url('fonts/up-d.eot?55mje6');
+  src:  url('fonts/up-d.eot?55mje6#iefix') format('embedded-opentype'),
+    url('fonts/up-d.ttf?55mje6') format('truetype'),
+    url('fonts/up-d.woff?55mje6') format('woff'),
+    url('fonts/up-d.svg?55mje6#up-d') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="udicon-"], [class*=" udicon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'up-d' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.udicon-arrow-up:before {
+  content: "\ea32";
+}
+.udicon-arrow-down:before {
+  content: "\ea36";
+}
+

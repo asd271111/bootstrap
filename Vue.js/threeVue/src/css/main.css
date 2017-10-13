@@ -1,0 +1,433 @@
+@charset "UTF-8";
+html, body, p, ul, li, span, h2, h1, h3, h4, h5, h6, input, hr {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+input {
+  outline: none;
+  -webkit-appearance: none;
+}
+
+/*把滚动条设置给body*/
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #fbda1a;
+  font-family: Roboto-medium,arial;
+  box-sizing: border-box;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: left;
+}
+.yellowBg{
+	width:100%;height:100%;background: #fbda1a;
+}
+
+.clearFloat:after {
+  content: "";
+  height: 0;
+  font-size: 0;
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+
+.login {
+  height: 19.35rem;
+  margin: 4.35rem 1.35rem 0 1.35rem;
+  background: #f6f7f7;
+  padding-left: 0.875rem;
+}
+
+.login span {
+  display: block;
+  padding-top: 2.775rem;
+  padding-left: 2rem;
+  padding-bottom: 3.05rem;
+}
+
+.login input[type=text] {
+  width: 11rem;
+  height: 1.95rem;
+  line-height: 1.95rem;
+  outline: none;
+  border: none;
+  display: block;
+  background: #c8c9c9;
+  padding-left: 0.5rem;
+  margin-bottom: 1.125rem;
+  font-size: 0.4rem;
+  color: #F6F7F7;
+}
+
+.login .Btnn {
+  margin-bottom: 0.5rem;
+  margin-right: 0.7rem;
+}
+
+.login .Btnn input {
+  width: 5.4rem;
+  height: 1.95rem;
+  line-height: 1.95rem;
+  background: #565656;
+  border-radius: 0.2rem;
+  text-align: center;
+  margin-right: 0.25rem;
+  font-size: 0.75rem;
+  color: #F6F7F7;
+  display: inline-block;
+}
+
+.login .Btnn a:first-child {
+  background: #595757;
+}
+
+.login .Btnn a:last-child {
+  background: #000000;
+}
+
+.login .memsg {
+  color: #333;
+  font-size: 0.5rem;
+  padding-left: 8.125rem;
+}
+
+.guimg {
+  width: 14.7rem;
+  height: 17.5rem;
+  padding-left: 1rem;
+  padding-top: 5.925rem;
+}
+
+.guimg .logob {
+  width: 14.7rem;
+  height: 12.4rem;
+  position: relative;
+}
+
+.guimg .logob span {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: url(../assets/mic04.png) no-repeat center center;
+  background-origin: 20%;
+}
+
+.guimg .logob p {
+  width: 7.5rem;
+  height: 7.5rem;
+  line-height: 7.5rem;
+  border-radius: 50%;
+  background: #fff;
+  text-align: center;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -3.25rem;
+  margin-left: -3.75rem;
+}
+
+.guimg .logob p img {
+  width: 5.3rem;
+  height: 1.5rem;
+  margin-top: 3rem;
+}
+
+.guimg p {
+  width: 0.025rem;
+  height: 7.5rem;
+  border: 1px dashed #cba506;
+  margin-left: 6.75rem;
+}
+
+.guimg a {
+  display: block;
+  width: 1.725rem;
+  height: 1.725rem;
+  background: url(../assets/yd01.png) no-repeat;
+  margin-left: 5.875rem;
+}
+
+/*音乐播放页*/
+.micP {
+  width: 100%;
+  height: 100%;
+}
+
+.micP .ttp {
+  width: 100%;
+  height: 0.65rem;
+  background: url(../assets/tto1.jpg) no-repeat;
+}
+
+.micP .micT {
+  width: 100%;
+  height: 2.05rem;
+  line-height: 2.05rem;
+  background: #191300;
+}
+
+.micP .micT a {
+  width: 1.2rem;
+  height: 0.825rem;
+  display: inline-block;
+  padding: 0 0.75rem;
+}
+
+.micP .micT .mictA {
+  float: left;
+}
+
+.micP .micT .mictB {
+  float: right;
+}
+
+.micP .micI {
+  width: 100%;
+  height: 16.225rem;
+  background: url(../assets/mic06.png) no-repeat top center;
+  padding-left: 2rem;
+  padding-top: 2.5rem;
+  box-sizing: border-box;
+  background-size: 200%,200%;
+}
+
+.micP .micI .runy {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background-size: 100%,100%;
+  border: 0.5rem solid #fff;
+  position: relative;
+}
+
+.micP .micI .runy .opbg {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -1.25rem;
+  margin-top: -1.25rem;
+}
+
+.micP .micI .runy .opbg span {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: black;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -0.75rem;
+  margin-top: -0.75rem;
+}
+
+.micP .micF {
+  width: 100%;
+  height: 10.5rem;
+  background: #474747;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: #fff;
+  box-sizing: border-box;
+  padding-left: 1rem;
+  padding-top: 1.25rem;
+  text-align: left;
+}
+
+.micP .micF p {
+  color: #C8C9C9;
+  font-size: 0.625rem;
+  padding-top: 0.5rem;
+}
+
+.micP .micF .musline {
+  width: 95%;
+  position: relative;
+  background: #333;
+  height: 0.2rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.micP .micF .musline hr {
+  width: 0;
+  height: 0.2rem;
+  box-sizing: border-box;
+  background: yellow;
+  border: none;
+  position: absolute;
+}
+
+.micP .micF .musline a {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: absolute;
+  top: -0.25rem;
+  left: 0;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.micP .micF .musline a i {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #fff;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -0.25rem;
+  margin-top: -0.25rem;
+}
+
+.micP .micF .playL {
+  text-align: center;
+  height: 2.5rem;
+}
+
+.micP .micF .playL a {
+  display: inline-block;
+  padding-right: 1.5rem;
+  color: #000;
+  font-size: 1rem;
+}
+
+.micP .micF .playL .maxp {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: inline-block;
+}
+
+.micP .micF .playL .maxp img {
+  width: 100%;
+  height: 100%;
+}
+
+.micP .miclistI {
+  height: 6rem;
+  background: url(../assets/banner01.png) no-repeat;
+}
+
+.micP .miclistF {
+  width: 100%;
+  height: 50rem;
+  box-sizing: border-box;
+  background: #474747;
+  padding-left: 0.45rem;
+  padding-right: 0.5rem;
+}
+
+.micP .miclistF span {
+  display: block;
+  color: #FBDA1A;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding-top: 0.875rem;
+  padding-bottom: 0.45rem;
+  text-align: left;
+}
+
+.micP .miclistF .listTop li {
+  float: left;
+  height: 2.75rem;
+  background: #595757;
+  width: 100%;
+  margin-bottom: 0.375rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.micP .miclistF .listTop li img {
+  width: 2.75rem;
+  height: 2.775rem;
+}
+
+.micP .miclistF .listTop li .micLtxt {
+  float: left;
+  color: #F6F7F7;
+  font-size: 0.5rem;
+  padding-left: 0.5rem;
+  padding-top: 0.425rem;
+}
+
+.micP .miclistF .listTop li .micLtxt h2 {
+  font-weight: normal;
+}
+
+.micP .miclistF .listTop li .micLtxt p {
+  font-size: 0.5rem;
+  color: #b4b4b5;
+  padding-top: 0.25rem;
+}
+
+.micP .miclistF .listTop li .micLtxt a {
+  width: 0.65rem;
+  height: 0.675rem;
+  display: inline-block;
+  background: url(../assets/listBT.jpg) no-repeat;
+  position: absolute;
+  right: 0.5rem;
+  top: 1.125rem;
+}
+
+.micP .miclistF .listb li {
+  float: left;
+  width: 7rem;
+  height: 9.625rem;
+  background: #595757;
+  margin-bottom: 0.375rem;
+  margin-right: 0.525rem;
+  box-sizing: border-box;
+  color: #F6F7F7;
+  font-size: 0.5rem;
+  padding-left: 0.4rem;
+  padding-top: 0.425rem;
+}
+
+.micP .miclistF .listb li img {
+  width: 6.25rem;
+  height: 6.25rem;
+}
+
+.micP .miclistF .listb li h2 {
+  font-weight: normal;
+  color: #fff;
+}
+
+.micP .miclistF .listb li p {
+  font-size: 0.5rem;
+  color: #b4b4b5;
+  padding-top: 0.25rem;
+}
