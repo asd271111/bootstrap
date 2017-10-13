@@ -1,0 +1,90 @@
+li{ list-style: none;}
+a:hover{ text-decoration: none;}
+
+header{ width: 100%; background: #000000; height: 70px;}
+.logo img{ margin-top: 20px;}
+.nav li{height: 70px; line-height: 70px; float: left; padding: 0 24px;}
+.nav li a{ color: #ffffff; font-size: 14px;}
+.banner{  height:771px ; background: url(../img/banner.png) no-repeat center top; background-size:cover;color: #fff;}
+.banner h3,.tbastxt h3{font-size: 36px;padding: 20px 0 36px; }
+.banner img{ margin-top: 110px;}
+.banner p{ color: #bebebd; font-size: 16px; margin-bottom: 44px;}
+ .line{ width:74px; height: 2px;background: #fff; display: block; margin-bottom: 30px;}
+.banner a,.stylist-wrap a{ width: 135px; height: 42px; height: 42px; border: 2px solid #fff; font-size: 15px; color: #fff;}
+.try-you{ width: 360px; height: 321px; background: #fff; margin-top: 140px; padding: 0;}
+.try-you p{ width: 360px; height: 54px;line-height:54px;background: #F5F5F5; font-size: 20px; color: #333;font-weight: bold; margin: 0; }
+.try-you p i{ color: #FF8B38; font-style: normal;}
+.try-you input{width:285px;height: 31px; border: 0; outline: none;  border-bottom: 1px solid #d6d6d6; font-size: 14px; color: #bdbdbd; text-indent: 10px; margin-top: 36px;}
+.banner .try-btn{ width: 360px; height: 54px;line-height: 54px; background: #ff9b51;font-size: 15px; color: #fff; display: block; margin-top: 50px; border: 0;}
+
+.soclia h3{font-size: 20px; color: #333;}
+.soclia p{ font-size: 14px; color: #86878b;}
+.soclia-tb a{font-size: 36px; color: #ccc; display: inline-block; margin: 0 20px; margin-top: 29px;}
+
+.tabs-wrap{width: 100%; height: 595px;background: #F5F5F5; background-size: cover; padding-top: 150px;}
+.tabbtn .tabbt1,.tabbt2,.tabbt3{ width: 112px; height: 112px; color: #FFF;}
+.tabbt1{ background: #F0AD4E;}
+.tabbt2{ background: #333;}
+.tabbt3{ background: #333;}
+
+.tbastxt h3{font-size: 20px; color:#000;  margin-bottom: 50px;}
+.tbastxt p{font-size: 14px; color:#86878b;  margin-bottom: 52px;}
+
+.tabd{width: 121px; height: 46px;background: #F0AD4E;  color: #fff; line-height: 46px; font-size: 15px; }
+.mt103{ margin-top: 103px;}
+.mt107{ margin-top: 107px;}
+.sub-img{ margin: 110px 0; }
+.sub-con{ font-size: 14px; color: #86878B;}
+.dzzh3{font-size: 20px; color: #212121; }
+.sub-wrap .sub-con .line,.why-wrap .line,.pric-wrap .line,.what-wrap .line,.cont-wrap .line{ background: #F0AD4E; height: 2px; margin: 30px 0;}
+.sub-con h5{ color: #212121; font-weight: bold;}
+.sub-title{ margin-top: 46px;}
+.sub-cy{ width: 40px; height: 40px; line-height: 40px; text-align: center; border: 2px solid #F0AD4E;display: inline-block; border-radius: 50%; color: #F0AD4E; font-size: 18px; margin-top: 10px;}
+
+.stand-warp{width: 100%; height: 524px; background: #F5F5F5; font-size: 14px; color: #86878B; }
+.stand-warp span{background: #F0AD4E; height: 2px; margin: 30px 0;}
+.stand-warp p{ margin-bottom: 20px;}
+
+.why-wrap h1,.pric-wrap h1{font-size: 36px; color: #212121;}
+.why-wrap .line,.pric-wrap .line,.what-wrap .line,.stylist-wrap .line,.cont-wrap .line{margin-left: 530px;}
+.why-list h3{ font-size: 20px; color: #212121;}
+.why-y{ width: 70px; height: 70px;line-height: 70px; border:1px solid #F0AD4E; border-radius: 50%; margin: 30px 0;display: block; margin-left: 150px; font-size: 32px; color: #F0AD4E;}
+.why-list p{ font-size: 14px; color: #86878b; margin-bottom: 105px;}
+
+.pric-wrap{ width: 100%; height: 883px; background: #F5F5F5;}
+.pric-list{padding: 80px 0;}
+.pric-list .pf{ width: 343px; height: 59px;line-height:59px; background: #333; border-bottom: 1px solid #fff; color: #fff;margin:0; font-weight: bold;}
+.pric-list .pri-o{width:343px; margin:0;height:160px;line-height:160px;background: #333; }
+.pric-list .pri-o h2{font-size:94px;color: #fff; margin:0; padding-top: 10px;}
+.h2bt-line{ border-bottom:1px solid #fff ;}
+.pric-list .pri-o h2 span{ font-size: 35px; color: #fff;}
+.pric-list .pri-o i{ font-size:14px; color:#ccc; display: block; margin-top: -60px;}
+.bgl,.bg2{ width: 343px; height: 5px; background: #ff8b38;display: block;  font-size: 20px;}
+.bg2{ height: 40px;line-height: 40px; font-size: 14px; color: #fff;}
+.pri-txt p{ width: 343px; height: 40px;line-height: 40px; color: #86878B; font-size: 14px; background: #fff; margin: 0; border: 1px solid #F5F5F5;}
+
+.pri-listf{ margin-top: 115px;}
+.pri-listw{ margin-top: 80px;}
+
+.what-wrap{ width: 100%; height: 590px; padding-top: 108px;}
+.what-txt{width: 273px;height: 147px; background:#F5F5F5 ;  color: #86878b; font-size: 14px; padding: 24px 13px;}
+.mt55{padding-top:55px ;}
+.mb101{margin-bottom: 101px; }
+.what-list h3{ font-size: 20px; color: #333;}
+.what-list span{ font-size: 14px; color: #86878B;}
+.what-san{ width: 0; height: 0; border:20px solid transparent; border-top: 20px solid #F5F5F5; margin-left: 30px; margin-top: -15px;display: block;}
+
+.stylist-wrap{ width: 100%; height:325px ; background: url(../img/stylish.png); margin-top: 101px; color: #86878B;}
+.stylist-wrap h1{ color: #fff; margin-top: 74px;}
+.stylist-wrap p{ margin: 23px 0;}
+
+.cont-wrap{ width: 100%; height:600px; margin-top: 108px;}
+.con-input input{width: 100%;height: 30px; border: 0; outline: none;  border-bottom: 1px solid #d6d6d6; font-size: 14px; color: #bdbdbd; text-indent: 10px; margin-bottom: 20px;}
+.cont-tex{ width: 527px; height: 132px; border:0; outline:none;border-bottom: 1px solid #D6D6D6;}
+
+.input-list{ margin-top: 90px;}
+.con-btn{ width: 148px;height: 46px;line-height: 38px; font-size: 14px; color: #fff; background: #F0AD4E; margin-top: 40px;}
+
+.foot-wrap{ width: 100%; height: 100%; background: #000;}
+.foot-wrap .soclia-tb a{ font-size: 24px; color: #ccc;}
+.foot-wrap .soclia-tb p{ font-size: 14px; color: #ccc; margin-top: 10px;}
