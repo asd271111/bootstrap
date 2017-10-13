@@ -1,0 +1,1281 @@
+@function torem($px){ //$px为需要转换的字号
+    @return $px / 40px * 1rem; //40px为根字体大小
+}
+html,body,p,ul,li,span,h2,h1,h3,h4,h5,h6,input{ margin:  0; padding: 0;}
+a{ -webkit-tap-highlight-color: transparent;text-decoration: none;}
+ul li{ list-style: none;}
+input{ outline: none;-webkit-appearance: none;}//去除input默认样式}
+/*把滚动条设置给body*/
+html{ width: 100%; height: 100%; overflow: hidden;position:relative}
+body{ width: 100%; height: 100%; overflow: auto; background-color: #e8e8e8; font-family: Roboto-medium,arial; /*padding-top: torem(86px);*/box-sizing: border-box;}
+
+.clearFloat:after{content: "";height: 0; font-size: 0;display: block; overflow: hidden; clear: both;}
+.fl{ float: left;}
+.fr{ float:right;}
+
+
+
+/*头部样式*/
+$whiteColor:#f8f8f8;
+$titleColor:#323c3f;
+.topWrap{
+    width: 100%;
+    line-height:torem(86px);
+    background: #67b0d6;
+    position: absolute;//移动端的定位不建议用fiexd
+    top: 0;left: 0;
+    z-index: 900;
+    box-sizing: border-box;
+    .ttoB,.ttof{padding:0 torem(20px);}
+    
+    .ttop{
+        width: 100%;
+      
+        position: absolute;
+        top: torem(-25px);
+        left:0;
+   
+        img{
+            width: 100%;
+            height: torem(36px);
+            
+           
+        }
+      
+    }
+    a{ width:torem(32px); height: torem(86px); display: inline-block;
+//      margin-left: torem(30px);
+        background:{
+            position: center center;
+            repeat:no-repeat;
+        }
+    }
+   
+    .ttoB{
+        padding: torem(40px) torem(25px) 0;
+    }
+    .searchInput{ width: 100%; display: block;padding-left:torem(-20px);}
+    
+    h2{font-size: torem(26px); color:$whiteColor; }
+    span{
+        line-height: 1.2;
+        .buyTop{
+            background-size: torem(32px) torem(30px);
+            background-image: url(../img/buyTop.png);
+        }
+        .bqTop{
+            background-size: torem(28px) torem(28px);
+            background-image: url(../img/categories.png);
+        }
+           
+         .tjTop{ /*产品列表*/
+            background-size: torem(28px) torem(30px);
+            background-image: url(../img/filters.png);
+        }
+    }
+    .menuTop{
+        background-size: torem(29px) torem(25px);
+        background-image: url(../img/hamburger.png);
+        margin-right:torem(48px) ;
+    }
+    
+    
+   .listTop{width: 100%; color: #e8ecf0; background: url(../img/arrow.png)no-repeat right center; font-size: torem(22px); background-size: torem(11px)  torem(18px); display: block;}
+   
+   .adtop{
+        background-size: torem(28px) torem(26px);
+        background-image: url(../img/bank.png);
+        margin-right:torem(48px) ;
+    }
+    
+    .adlist{
+        li{
+            float: left;
+            width: torem(146px);
+            text-align: center;
+            a{
+                width: 100%;
+//              padding: torem(10px) 0 0 0;
+//              line-height: torem(10px);
+                color: $whiteColor;
+                font-size: torem(19px);
+                display: inline-block;
+                 text-transform:uppercase;
+                &:hover{
+                    color: #38474f;
+                    border-bottom: torem(7px) solid $titleColor;
+                }
+            }
+           
+        }
+    }
+
+    
+}
+/*wotoWrap*/
+ .wotoWrap{ 
+    background:#47555c ;
+    width: 100%;
+    line-height:torem(86px);
+    position: absolute;//移动端的定位不建议用fiexd
+    top: 0;left: 0;
+    z-index: 900;
+    box-sizing: border-box;
+    padding:0 torem(20px);
+    a{ width:torem(32px); height: torem(86px); display: inline-block;
+        background:{
+            position: center center;
+            repeat:no-repeat;
+        }
+         cursor: pointer;
+    }
+      .ttop{
+        width: 100%;
+      
+        position: absolute;
+        top: torem(-25px);
+        left:0;
+   
+        img{
+            width: 100%;
+            height: torem(36px);
+            
+           
+        }
+      
+    }
+    
+    .ttoB{
+        padding: torem(40px) torem(25px) 0;
+    }
+    .searchInput{ width: 100%; display: block;}
+    
+    h2{font-size: torem(26px); color:$whiteColor; }
+    span{
+        line-height: 1.2;
+        .buyTop{
+            background-size: torem(32px) torem(30px);
+            background-image: url(../img/buyTop.png);
+        }
+        .bqTop{
+            background-size: torem(28px) torem(28px);
+            background-image: url(../img/categories.png);
+        }
+           
+         .tjTop{ /*产品列表*/
+            background-size: torem(28px) torem(30px);
+            background-image: url(../img/filters.png);
+        }
+    }
+     .adtop{
+        background-size: torem(28px) torem(26px);
+        background-image: url(../img/bank.png);
+        margin-right:torem(48px) ;
+    }
+    .Wolist{
+       
+        li{
+            float: left;
+            width: torem(287px);
+            text-align: center;
+//          margin-left:torem(18px) ;   
+           margin-bottom: torem(14px);
+            &:nth-child(2){
+                margin-left: torem(15px);
+            }
+            a{
+                width: 100%;
+                height:torem(63px) ;
+                line-height:torem(63px)  ;
+                color:$whiteColor;
+                font-size: torem(20px);
+                background: #2d3a40;
+                text-transform:uppercase;
+                border-radius: torem(3px);
+                 cursor: pointer;
+                display: inline-block;
+                 &:hover{
+                    background: #F6846A;
+                   
+                }
+            }
+        }
+    }
+ 
+ }
+/*注意點
+ * 1.点击的图片面积最佳是86*86
+ * 2.移動端的圖片大小必須要定寬高*/
+/*banner*/
+$titleColor:#323c3f;
+$zsColor:#a6a6ad;
+$boxShowColor:rgba(0,0,0,0.25);
+$boxShow:0px 2px 4px $boxShowColor;
+.banner{
+    height:torem(285px) ;
+    background: #f7f7f7 url(../img/banner.jpg) no-repeat center top;
+    background-size:cover ;
+    box-shadow: $boxShow;
+    padding-top: torem(-20px);
+    .bannerTxt{
+        padding:{
+            left: torem(356px);
+            top:torem(69px);
+        } 
+        
+        h3{
+            font-size: torem(28px); 
+            color: $titleColor;  
+        }
+        span{
+            font-size:torem(22px) ;
+            color:$zsColor;
+        }
+    }
+   
+        
+    }
+    .bannerBtn{
+        width: torem(146px);
+        height: torem(67px);
+        line-height: torem(67px);
+        display: block;
+        background: #f6846a;
+        text-align: center;
+        text-transform: uppercase;
+        border-radius: torem(5px);
+        color: $whiteColor;
+        font-size: torem(15px);
+        margin: {
+         left: torem(437px); 
+         top: torem(60px);
+        }
+    }
+    
+/*advice*/
+.adbanner{
+     height:torem(300px) ;
+     background: #f7f7f7 url(../img/ad01.png) no-repeat center top;
+     background-size:cover ;
+     box-shadow: $boxShow;
+     .adbannerTxt{
+        padding:{
+            left: torem(56px);
+            top:torem(69px);
+        } 
+        h3{
+            font-size: torem(28px);
+            color: #13164c;
+        }
+        span{
+            font-size: torem(22px);
+            color: #a4a5b7;
+        }
+     }
+}
+
+.adbannerN{
+     height:torem(303px) ;
+     background: #f7f7f7 url(../img/ad02.png) no-repeat center top;
+     background-size:cover ;
+     box-shadow: $boxShow;
+     text-transform:uppercase;
+     color: #FFF;
+     text-align: center;
+     .adbannerTxt{
+        padding:{
+            left: torem(20px);
+            top:torem(190px);
+        } 
+       
+        h3{
+            font-size: torem(33px);
+            letter-spacing: 10px;
+        }
+        span{
+            font-size: torem(24px);
+           
+        }
+     }
+}
+
+.searchBox{
+    text-align: center;
+    margin: {
+        top:  torem(35px);
+        bottom:  torem(38px);
+    }
+   
+}
+ .searchInput{
+        width: torem(590px) - torem(100px);
+        height:  torem(87px);
+        background: $whiteColor url(../img/fangdaj.png)no-repeat  torem(59px) center;
+        background-size:torem(29px) torem(29px) ;
+        border-radius:torem(3px);
+        border: none;
+        box-shadow: $boxShow;
+        padding-left:torem(100px);
+        font-size: torem(26px);
+        color: $zsColor;
+    }
+
+/*list*/
+$liPriceColor:#aaabbc;
+.listWrap{
+    .listTitle{
+        text-align: center;
+        margin-bottom: torem(44px);
+        h2{
+            font-size:torem(24px);
+            color: $titleColor;
+            text-transform: uppercase;/*文字大写*/
+            margin: {
+                top: torem(22px);
+                bottom: torem(22px);
+            }
+        }
+        hr{
+            height:torem(3px);
+            width: torem(100px);
+            background: #bec0c1;
+        }
+    }
+    .listType{
+        $boxShowColor:rgba(0,0,0,0.2);
+        $boxShow:0 torem(2px) torem(4px) $boxShowColor;
+        text-align: center;
+        padding: torem(66px) 0 torem(69px);
+        a{
+            width:torem(114px);
+            height: torem(50px);
+            border-radius: torem(3px);
+            background: $zsColor;
+            display: inline-block;
+            color: #fff;
+            text-transform: capitalize;
+            font-size: torem(15px);
+            line-height: torem(50px);
+            position: relative;
+            margin: 0 torem(13px);
+            box-shadow: $boxShow;
+            
+            i{
+                width:torem(26px) ; height: torem(26px);
+                display: block;position: absolute;
+                top: torem(-13px);right: torem(-13px);
+                background: #2d2e3d url(../img/x.png)no-repeat center center ;
+                background-size: torem(9px) torem(9px);
+                border-radius:50%;
+            }
+        }
+    }
+    .list{
+        $boxShowColor:rgba(0,0,0,0.18);   
+        $boxShow:0px torem(2px) torem(4px) $boxShowColor;
+        width: torem(587px);
+        margin: 0 auto;
+     
+        li{
+           
+            background: #fff;
+            float: left;
+            box-shadow: $boxShow;
+            margin-bottom: torem(35px);
+            border-radius: torem(8px);
+           position: relative;
+            &:nth-child(2n){
+                margin-left: torem(25px);
+            }
+            a{
+                 width: torem(280px);
+                 height: torem(524px);
+                 display: block;
+                 overflow: hidden;
+                 border-radius:torem(8px) ;
+            }
+            .newlist{
+                width:torem(59px);height: torem(36px);
+                line-height: torem(36px);
+                text-align: center;
+                display: block;
+                position: absolute;
+                background: #F6846A;
+                top:torem(55px) ;left:torem(-7px) ;border-radius: torem(3px);
+                font-size: torem(14px);
+                color: #fff; 
+                box-shadow: $boxShow;
+            }
+            img{
+                width: torem(280px);
+                height: auto;
+                display: block;
+              
+                 
+            }
+            .itemTxt{
+                padding-top:torem(26px) ;
+                text-align: center;
+                
+                h6{
+                    font-size: torem(26px);
+                    color: $titleColor;
+                }
+                p{
+                    font-size: torem(16px);
+                    color: $liPriceColor;
+                }
+            }
+        }
+    }
+/*advice*/
+     .adlist{
+         $boxShowColor:rgba(0,0,0,0.18);   
+        $boxShow:0px torem(2px) torem(4px) $boxShowColor;
+        width: torem(588px);
+        margin: 0 auto;
+      padding-top: torem(100px);
+        li{
+           
+            background: #fff;
+            float: left;
+            box-shadow: $boxShow;
+            margin-bottom: torem(35px);
+            border-radius: torem(8px);
+           
+            &:nth-child(2n){
+                margin-left: torem(25px);
+            }
+            a{
+                 width: torem(280px);
+                 height: torem(351px);
+                 display: inline-block;
+                 overflow: hidden;
+                 border-radius:torem(8px) ;
+                 .aditemTxt{
+                    padding-top:torem(26px) ;
+                    text-align: center;
+                    h6{
+                        font-size: torem(19px);
+                        color: $titleColor;
+                    }
+                }
+            }
+    }
+  }
+  .adli{
+       width: torem(588px);
+        border-radius: torem(6px);
+       background: #fff;
+       margin-left: torem(25px);
+       a{
+            width: torem(588px);
+            height: torem(280px);
+            display: inline-block;
+            overflow: hidden;
+            border-radius:torem(6px) ;
+             
+            .aditemTxt{
+                padding-top:torem(26px) ;
+                text-align: center;
+                h6{
+                    font-size: torem(19px);
+                     color: $titleColor;
+                    }
+                }
+            }
+  }
+
+    .listBottom{
+        padding-top: torem(42px);
+        text-align: center;/*水平居中*/
+       color: $zsColor;
+        .loading{
+            width:torem(60px) ;
+            height: torem(60px);
+          
+           
+           
+//          background: #72bdd5 url(../img/1.png) no-repeat center center;
+//          background-size: torem(31px) torem(31px);
+            background-color: #72bdd5;
+            margin: 0 auto;
+            border-radius: 50%;
+            box-shadow: $boxShow;
+           /* display: table-cell;*//*变成表格的单元格*/
+           /* text-align: center;*//*水平居中*/
+            display: block;
+//          animation: loading 0.5s linear infinite;/*加载圆*/
+           img{
+               width:torem(31px);height:torem(31px);
+               vertical-align: middle;/*vertical-align垂直居中*/
+               animation: loading 0.5s linear infinite;/*加载圆*/
+               transform-origin: center center;
+               
+           }
+          
+        }
+        p{
+            padding:torem(44px) 0 torem(60px);
+            font-size: torem(19px);
+        }
+         a{ 
+               width: torem(277px);
+               height: torem(60px);
+               line-height: torem(60px);
+               background: #3a4144;
+               font-size:torem(19px) ;
+               border-radius: torem(4px);
+               display: block;
+               color: #F8F8F8;
+               margin: torem(35px) auto torem(37px);
+               
+           
+           }
+    }
+}
+
+@keyframes loading{
+    0%{ transform: rotate(0deg);}
+    100%{ transform: rotate(360deg);}
+}
+
+
+.wobanner{
+    width: torem(592px);
+    height: torem(592px);
+    background:#fff;
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: torem(8px);
+    margin:{
+        left:torem(24px) ;
+        top: torem(25px);
+        bottom: torem(30px);
+    }
+    
+    .wobannerTxt{
+      
+       padding:torem(30px) torem(25px);
+       text-align: center;
+         h3{
+            font-size: torem(26px);
+            color: $titleColor;
+            padding-top: torem(20px);
+        }
+        span{
+            display: inline-block;
+            width: torem(144px);
+            height: torem(67px);
+            line-height: torem(67px);
+            font-size: torem(22px);
+            color: #fff;
+            background: #bfbfc4;
+         }
+    }
+   
+}
+.wosearchBox{
+    width: torem(591px);
+    height: torem(99px);
+    color: $titleColor;
+    font-size: torem(26px);
+   border-radius: torem(6px);
+    margin: {
+     top: torem(30px);
+     left: torem(25px); 
+     bottom: torem(37px);  
+    }
+   .wosearchA{
+        width: torem(590px) - torem(100px);
+        height:  torem(87px);
+        line-height: torem(87px);
+         border-radius: torem(6px);
+        background: #fff url(../img/open.png)no-repeat  torem(59px) center;
+        background-size:torem(29px) torem(29px) ;
+
+     
+        box-shadow: $boxShow;
+        display: block;
+        padding-left:torem(100px);
+        font-size: torem(26px);
+        color: $titleColor;
+    }
+}
+.wolistWrap{
+    width: torem(592px);
+    height: torem(509px);
+    background: #fff;
+    display: block;
+     border-radius: torem(6px);
+    margin-left: torem(25px);
+    padding:torem(37px) torem(66px) torem(0px) torem(71px);
+    box-sizing: border-box;
+    
+    .wolisttop{
+        border-bottom: 1px solid #dcdcdc;
+        width: 90%;
+        padding-bottom:torem(104px) ;
+        text-align: center;
+        span{
+            width: torem(22px);
+            height: torem(26px);
+         background:url(../img/wod07.png) no-repeat  center; 
+         display: block; 
+         font-size: torem(26px);
+         color: $titleColor;
+         padding-left: torem(70px);
+         font-weight: bold;
+          margin:{
+              left: torem(100px);
+              bottom: torem(23px);
+          }
+          
+        }
+        h2{
+            color: $zsColor;
+            font-size: 26px;
+            margin-bottom: torem(36px);
+        }
+        .wobglist{
+            width: 100%;
+            margin-left: torem(70px);
+            li{
+                float: left;
+                width: torem(71px);
+                height: torem(71px);
+                border-radius: torem(3px);
+                background: #f0c9ce url(../img/woD02.png)no-repeat torem(20px) center;
+                margin:{
+                    right:torem(25px) ;
+                  
+                }
+                &:nth-child(2){
+                    background:#af687a ;
+                }
+                &:nth-child(3){
+                    background:#87a6b2 ;
+                }
+            }
+        }
+    }
+    .wolistcon{
+       
+        width: 90%;
+        padding:{
+            bottom:torem(44px) ;
+            top: torem(30px);
+        }
+        text-align: center;
+        span{
+            width: torem(22px);
+            height: torem(26px);
+         background:url(../img/wod08.png) no-repeat  center; 
+         display: block; 
+         font-size: torem(26px);
+         color: $titleColor;
+         padding-left: torem(70px);
+         font-weight: bold;
+          margin:{
+              left: torem(100px);
+              bottom: torem(23px);
+          }
+          
+        }
+        h2{
+            color: $zsColor;
+            font-size: 26px;
+            margin-bottom: torem(36px);
+        }
+        .wobglists{
+            width: 100%;
+            
+            li{
+                float: left;
+                width: torem(71px);
+                height: torem(71px);
+                line-height: torem(71px);
+                border-radius: torem(3px);
+                background: #dadade;
+                color:$titleColor ;
+                font-size: torem(24px);
+                margin:{
+                    right:torem(10px) ;
+                  
+                }
+                &:nth-child(2){
+                    background:#67B0D6 ;
+                    color: #fff;
+                }
+               
+            }
+        }
+    }
+    .listBottom{
+        padding-top: torem(82px);
+        text-align: center;/*水平居中*/
+       color: $zsColor;
+       
+        a{ 
+               width: torem(277px);
+               height: torem(60px);
+               line-height: torem(60px);
+               background: #3a4144;
+               font-size:torem(19px) ;
+               border-radius: torem(4px);
+               display: block;
+               color: #F8F8F8;
+               margin: torem(35px) auto torem(37px);
+               
+           
+           }
+    }
+   
+}
+ .fooadd{
+     width: torem(592px);
+     margin:{
+         left: torem(25px);
+         top: torem(150px);
+     }
+        p{
+            text-transform: uppercase;
+            color: $titleColor;
+            margin-bottom: torem(45px);
+           
+            font-size: torem(24px);
+            
+           span{
+                width: torem(430px);
+                height: torem(2px);
+                background: #DCDCDC;
+                display: inline-block;
+                margin-top: torem(-30px);
+                margin-left: torem(20px);
+            }
+        }
+        li{
+            float: left;
+            width: torem(160px);
+            margin-right: torem(36px);
+            p{
+                float: left;
+                width: torem(74px);
+                height: torem(74px);
+                border-radius: 50%;
+                background: #56c2ea url(../img/woD03.png) no-repeat torem(25px) center;
+              
+            }
+            &:nth-child(2) p{
+                    background: #3b63b6 url(../img/icowoD04.png) no-repeat torem(30px) center;
+            }
+            &:nth-child(3) p{
+                background: #e53e59 url(../img/woD05.png) no-repeat torem(25px) center;
+            }
+            i{
+                float: right;
+               margin-top: torem(20px);
+                width:torem(76px) ;
+                height: torem(45px);
+                line-height: torem(45px);
+                text-align: center;
+                display: inline-block;
+                font-style: normal;
+                background: url(../img/wobd.png)no-repeat;
+                color: $titleColor;
+                font-size: torem(15px);
+            }
+        }
+    }
+    
+.hatoWrap{
+   
+    width: 100%;
+    line-height:torem(86px);
+    position: absolute;//移动端的定位不建议用fiexd
+    top: 0;left: 0;
+    z-index: 900;
+    box-sizing: border-box;
+    background: #F6846A;
+     .ttop{
+        width: 100%;
+      
+        position: absolute;
+        top: torem(-25px);
+        left:0;
+   
+        img{
+            width: 100%;
+            height: torem(36px);
+            
+           
+        }
+      
+    }
+    
+    .ttoB{
+        padding: torem(40px) torem(25px) 0;
+    }
+    a{ width:torem(32px); height: torem(86px); display: inline-block;
+        background:{
+            position: center center;
+            repeat:no-repeat;
+        }
+         cursor: pointer;
+    }
+     h2{font-size: torem(26px); color:$whiteColor; margin-left: torem(20px); }
+    
+     .hdtop{
+        background-size: torem(28px) torem(26px);
+        background-image: url(../img/bank.png) ;
+//      margin-left:torem(28px) ;
+    }
+   
+}
+.habanner{
+    width: 100%;
+    height: torem(350px);
+    padding-top: torem(-40px);
+    background: #38474F url(../img/chec01.png) no-repeat bottom center;
+//  padding-top: torem(-20px);
+    h3{
+        font-size: torem(26px);
+        color: $whiteColor;
+        line-height: torem(60px);
+          text-align: center;
+    }
+    h2{
+        font-size: torem(38px);
+        color: #fff;
+          text-align: center;
+         margin: {
+          top: torem(80px);   
+         }
+    }
+    span{
+        width:torem(19px) ;
+        height: torem(19px);
+        display: inline-block;
+        background: url(../img/close.png)no-repeat;
+        margin: {
+         top: torem(40px);   
+         right: torem(40px);
+        }
+    }
+    .habanInput{
+        margin:torem(40px) torem(20px);
+        input{
+            border: none;
+            border-radius: torem(3px);
+            font-weight: bold;
+        }
+        input[type=text]{
+            width: torem(389px);
+            height: torem(61px);
+            background: rgba(255,255,255,0.5);
+          box-sizing: border-box;
+            color: #fff;
+            font-size: torem(19px);
+            padding: {
+                left: torem(20px);
+            }
+        }
+        input[type=button]{
+            width: torem(185px);
+            height: torem(61px);
+            line-height: torem(61px);
+            background: #fff;
+            color: $titleColor;
+            font-size: torem(17px);
+            text-align: center;
+            text-transform: uppercase;
+          
+        }
+    }
+   
+}
+.hasearchBox{
+    width: torem(591px);
+    height: torem(87px);
+    color: $titleColor;
+    font-size: torem(26px);
+    border-radius: torem(6px);
+      overflow: hidden;
+    background: #fff;
+    margin: {
+    top: torem(30px);
+    left: torem(25px); 
+    bottom: torem(37px);  
+  
+    
+    }
+   .hasearchA{
+        width: torem(500px) - torem(100px);
+        height:  torem(87px);
+        line-height: torem(87px);
+        
+        background: #fff;
+        background-size:torem(29px) torem(29px) ;
+        box-shadow: $boxShow;
+        display: block;
+        padding-left:torem(100px);
+        font-size: torem(22px);
+        color: $zsColor;
+    }
+    select{
+        width: torem(76px);
+        height: torem(96px);
+        background: #38474F url(../img/arroh.png)no-repeat torem(30px) center;
+        display: inline-block;
+        
+    }
+    
+}
+.hazsearchBox{
+    width: torem(591px);
+    height: torem(87px);
+    
+    border-radius: torem(6px);
+    overflow: hidden;
+    background: #fff;
+    margin: {
+    top: torem(30px);
+    left: torem(25px); 
+    bottom: torem(37px);  
+     
+    
+    }
+   input{
+            width: torem(551px);
+            height: torem(87px);
+            border: none;
+            border-radius: torem(3px);
+            font-weight: bold;
+            color: $zsColor;
+            font-size: torem(22px);
+             padding: {
+                left: torem(40px);
+            }
+          
+        }
+    .bo{
+                color: #000;
+           }
+    
+}
+.halsearchBox{
+     width: torem(591px);
+    height: torem(87px);
+    
+    border-radius: torem(6px);
+    overflow: hidden;
+   font-size: torem(22px);
+    margin: {
+    top: torem(30px);
+    left: torem(25px); 
+    bottom: torem(37px);  
+     
+    
+    }
+   input{
+            width: torem(240px);
+            height: torem(87px);
+            border: none;
+            border-radius: torem(3px);
+            color: $zsColor;
+            font-weight: bold;
+            background: #fff;
+             padding: {
+                left: torem(40px);}
+                
+            &:last-child{color: $titleColor;}
+     }
+     
+}
+.halistBottom{
+    padding-top: torem(42px);
+    text-align: center;/*水平居中*/
+    color: $zsColor;
+     a{ 
+               width: torem(283px);
+               height: torem(75px);
+               line-height: torem(75px);
+               background: #84b262;
+               font-size:torem(19px) ;
+               border-radius: torem(4px);
+               display: block;
+               color: #fff;
+               margin: torem(35px) auto torem(37px);
+               
+           
+           }
+}
+.yobanner{
+    width: 100%;
+    box-sizing: border-box;
+    .yobannerTxt{
+       width: 100%;
+        height: torem(86px);
+        line-height: torem(86px);
+        background: #38474F;
+        padding-top: torem(-20px);
+        h3{
+            font-size: torem(26px);
+            color: #fff;
+            text-align: center;
+//          margin: {
+//           top: torem(80px);   
+//          }
+        }
+    }
+ 
+    
+}
+
+.youList{
+    width: torem(590px);
+    height: torem(150px);
+    border-radius: torem(6px);
+    background: #fff;
+    box-shadow: $boxShow;
+    color: $titleColor;
+    margin: {
+     top: torem(36px); 
+     left: torem(25px);
+     bottom: torem(30px); 
+    }
+//  padding: {
+//   top: torem(30px);   
+//  }
+    img{
+        width:torem(96px) ;
+        height: torem(96px);
+        margin-left: torem(50px);
+        padding-top: torem(28px);
+        display: inline-block;
+        float: left;
+        
+    }
+    .youTXT{
+        float: right;
+        width:torem(420px);
+        height: torem(150px);
+        position: relative;
+        h2{
+               
+                font-size: torem(24px);
+                padding-top: torem(40px);
+               
+            }
+        
+        span{
+                width: torem(74px);
+                height: torem(34px);
+                line-height: torem(34px);
+                text-align: center;
+                background: #e2e4e4;
+                display: inline-block;
+                font-size: torem(14px);
+                margin-top: torem(-30px);
+               
+            }
+            
+        a{
+            width: torem(13px);
+            height: torem(13px);
+            display: inline-block;
+            background: url(../img/delete.png)no-repeat top center;
+      
+            position: absolute;
+          
+                left: torem(400px);
+                top: torem(10px);
+           
+            
+        }
+        h3{
+            font-size: torem(22px);
+            color: $zsColor;
+            position: absolute;
+            
+               left: torem(320px);
+               top:torem(80px) ;
+            
+        }
+    }
+    
+}
+.youConM{
+    width: torem(590px);
+    height: torem(200px);
+    background: #fff;
+    padding: 0 torem(20px);
+    box-sizing: border-box;
+    border-radius: torem(6px);
+    overflow: hidden;
+    margin: {
+        left: torem(25px);
+        bottom: torem(30px);
+    }
+    
+    color: $titleColor;
+    .youCon,.youConb{
+        height: torem(116px);
+        line-height: torem(116px);
+        border-bottom: 1px solid #dee0e0;
+       
+        p{
+            font-size: torem(22px);
+            float:left;
+        }
+        a{
+            width: torem(195px);
+            height: torem(65px);
+            line-height: torem(65px);
+            text-align: center;
+            background: #84B262;
+            display: inline-block;
+            font-size: torem(18px);
+            color: #fff;
+            float: right;
+            margin-top: torem(30px);
+            text-transform: uppercase;
+            
+        }
+    }
+    .youConb{
+        height: torem(85px);
+        line-height: torem(85px);
+        p{
+            text-transform: uppercase;
+        }
+        span{
+            display: inline-block;
+            font-size: torem(28px);
+            color:#F6846A;
+            font-weight: bold;
+            float: right;
+        }
+    }
+}
+.Yfoot{
+      width: torem(590px);
+        border-radius: torem(6px);
+        box-shadow: $boxShow;
+        margin: {
+            left: torem(25px);
+            bottom: torem(40px);
+        }
+    .youfoo{
+        width:100%;
+      
+        h2{
+            
+            height: torem(90px);
+            line-height: torem(90px);
+            text-align: center;
+            background: #38474F;
+            font-size: torem(28px);
+            color: #fff;
+            
+        }
+        p{
+            height: torem(33px);
+//          width:100%;
+            font-size: torem(24px);
+            color: $titleColor;
+            padding:{
+                left: torem(100px);
+               
+            }
+            margin-top:torem(30px);
+            background: url(../img/butto.png) no-repeat torem(30px) center;
+        }
+        span{
+            text-align: center;
+            display: block;
+            width: torem(74px);
+            height: torem(20px);
+            padding:torem(40px) 0 torem(30px) torem(480px);
+            background: url(../img/paypal.png)no-repeat center center;
+        }
+        .ylist{
+            li{
+                float: left;
+                padding-left: torem(45px);
+            }
+        }
+        h3{
+            font-size: torem(22px);
+            color: #7e7e85;
+            text-align: center;
+            padding-top: torem(100px);
+        }
+    }
+    .youfob{
+        width: 100%;
+        height: torem(380px);
+        background: #fff;
+        overflow: hidden;
+        margin: {
+            top: torem(30px);
+        }
+        span{
+            width: torem(33px);
+            height: torem(33px);
+            border-radius: 50%;
+             display: inline-block;
+            background: #e7e7e9;
+            float: left;
+            margin: {
+                top: torem(40px);
+                left: torem(30px);
+            }
+        }
+        h2{
+            font-size: torem(22px);
+            color: $titleColor;
+           
+            float: left;
+            padding: {
+                top: torem(40px);
+                left: torem(30px);
+            }
+            
+        }
+        p{
+            width: torem(450px);
+            font-size: torem(19px);
+            color: #7E7E85;
+           margin: {
+               top:torem(100px);
+               left: torem(95px);
+           }
+            line-height: torem(20px);
+        }
+    }
+}
+.yolistBottom{
+   
+    text-align: center;/*水平居中*/
+    color: $zsColor;
+     a{ 
+               width: torem(283px);
+               height: torem(75px);
+               line-height: torem(75px);
+               background: #84b262;
+               font-size:torem(19px) ;
+               border-radius: torem(4px);
+               box-shadow: $boxShow;
+               display: block;
+               color: #fff;
+               margin: torem(35px) auto torem(37px);
+               text-transform: uppercase;
+             
+          &:nth-child(2){
+               background: #e85653;
+           }
+           }
+         
+}
