@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>飞机大战</title>
+		<![if lt IE9]> 
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]
+	</head>
+	<body>
+		<canvas id="canvas" width="750" height="1334" style=" border: 1px solid #F5F5DC;cursor:pointer;"></canvas>
+		<label style="background:mediumaquamarine;">击中敌机:</label>
+		<input type="text" id="txt" value="0" style="border: none; width: 30px; font-size:16px;height: 10px; color: red; font-weight: 40;" />
+		<label>被敌机击中：</label>
+		<input type="text" id="dxt" value="0" style="border: none;font-size: 16px; width: 30px; height: 20px; color:maroon; font-weight: 30;" />
+		<script>
+			var can=document.getElementById("canvas");
+			var ctx=can.getContext("2d");
+			var txt=document.getElementById("txt");
+			var dtx=document.getElementById("dxt");
+			
+			var me={x:100,y:100,w:120,h:79};
+			var mx=100,my=100;
+			var oth={x:325,y:0,w:197,h:134};
+			var dj={x:100,y:100,w:20,h:50};//敌机对象
+			var beMove01={x:0,y:0,w:750,h:1334};
+			var beMove02={x:0,y:-1334,w:750,h:1334};
+			
+
+			var other=[];//敌机数组
+			var zd=[];//玩家子弹
+			var dd=[];//敌机子弹
+			var mm=[];//玩家数组
+			
+			var be01=new Image();//背景2
+			be01.src="img/bg1.jpg";
+			
+			var be02=new Image();//背景1
+			be02.src="img/be2.jpg";
+			
+			var meImg=new Image();//玩家
+			meImg.src="img/plane1.png";
+			
+			var othImg=new Image();//敌机
+			othImg.src="img/plane2.png";
+			
+			var zdImg=new Image();//玩家子弹
+			zdImg.src="img/ball1.png";
+			
+			var djImg=new Image();//敌机子弹
+			djImg.src="img/ball2.png";
+			
+			var tiome=setInterval(function(){
+				
+				if(beMove01.y>=1334){
+					beMove01.y=-1334;
+				}else{
+					beMove01.y+=5
+				}
+				drawImg(be01,beMove01.x,beMove01.y,beMove01.w,beMove01.h);
+				
+				if(beMove02.y>=1334){
+					beMove02.y=-1334;
+				}else{
+					beMove02.y+=5;
+				}
+				drawImg(be02,beMove02.x,beMove02.y,beMove02.w,beMove02.h);
+				
+				zdMove();//玩家子弹移动
+				me.x=mx-60;
+				me.y=my-40;
+			    var mM={x:me.x,y:me.y,w:me.w,h:me.h};
+				mm.push(mM);
+				drawImg(meImg,me.x,me.y,me.w,me.h);
+				
+				djMove();//敌机子弹移动
+				move();//敌机移动
+				poM();//玩家碰撞（子弹与飞机）
+				poO();//敌机的子弹与玩家飞机相撞
+			},30);
+			
+			function drawImg(souer,x,y,w,h){
+				ctx.drawImage(souer,x,y,w,h);
+				
+			}
+			var newX;
+			var newY;
+			function Oth(){//敌机
+				 newX=parseInt(Math.random()*(can.width-197));
+				 newY=-134;
+				var newPlane={x:newX,y:newY,w:oth.w,h:oth.h};
+				console.log(oth.x+","+oth.y);
+				other.push(newPlane); 
+			}
+			
+			function djZd(){//敌子弹
+				other.forEach(function(t,n){
+					
+				var dx=t.x+85;
+				var dy=t.y;	
+				var newD={x:dx,y:dy,w:dj.w,h:dj.h};
+				//console.log(dx+","+dy+","+dj.w+","+dj.h);
+				dd.push(newD);
+				})
+			}
+			// function
+			function meZd(x,y){//玩家子弹
+				var wx=x-16;
+				var wy=y;
+				var ww=26;
+				var wh=67;
+			    var newW={x:wx,y:wy,w:ww,h:wh};
+				zd.push(newW);
+				
+			}
+			
+			
+			function move(){//敌机移动
+				other.forEach(function(val,index){//敌机
+					if(val.y<can.height){
+						val.y+=10;
+					}else{
+						other.splice(index,1);
+					}
+					console.log(othImg+","+val.x+","+val.y+","+val.w+","+val.h);
+					drawImg(othImg,val.x,val.y,val.w,val.h);
+				});
+			
+				
+				
+			}
+			function djMove(){//敌机子弹移动
+				dd.forEach(function(del,sen){//敌机
+					if(del.y<can.height){
+						del.y+=30;
+					}else{
+						dd.splice(sen,1);
+					}
+					//console.log(djImg+","+del.x+","+del.y+","+del.w+","+del.h);
+					drawImg(djImg,del.x,del.y,del.w,del.h);
+				});
+			}
+			
+			function zdMove(){//玩家子弹
+				zd.forEach(function(con,num){//玩家子弹
+					if(con.y>0){
+						con.y-=10;
+					}else{
+						zd.splice(num,1);
+					}
+					//console.log(othImg+","+con.x+","+con.y+","+con.w+","+con.h);
+					drawImg(zdImg,con.x,con.y,con.w,con.h);
+				});	
+			}
+			
+			var t=setInterval(function(){//用计时器来画敌机
+				Oth();	
+				
+			},800);
+			var td=setInterval(function(){//用计时器来画敌机子弹
+				djZd();
+			},400);
+			
+			function meZdC(e){
+				mx=e.offsetX;
+				my=e.offsetY;
+				meZd(mx,my);
+			}
+			var bImg=new Image();
+			bImg.src="img/boom.gif";
+			function boImg(){
+				var bx=me.x-30;
+				var by=me.y;
+				var bw=91*2;
+				var bh=104*2;
+				drawImg(bImg,bx,by,bw,bh);
+			}
+			var getNum=0;
+			function poM(){//玩家与敌机碰，子弹与敌机碰
+				other.forEach(function(val,index){
+					if(me.x+me.w<val.x||me.x>val.x+val.w||me.y+me.h<val.y||me.y>val.y+val.h){
+						console.log("hhhhhh");
+					}else{
+						console.log("碰撞；了");
+						clearInterval(tiome);
+						clearInterval(t);
+						clearInterval(td);
+						
+						
+						
+					}
+				zd.forEach(function(con,num){
+					if(con.x+con.w<val.x||con.x>val.x+val.w||con.y+con.h<val.y||con.y>val.y+val.h){
+						console.log("yyyyyy");
+					}else{
+						console.log("碰撞啦啦啦");
+						getNum++;
+						txt.value=getNum;
+						//boImg();
+						other.splice(index,1);//敌机
+						zd.splice(num,1);//玩家子弹
+						
+					}
+					
+				});
+				});
+			}
+			var getM=100;//检测当前玩家的血量值，每次减10；0则关闭游戏
+			var getMen=0;
+			function poO(){//敌机子弹与玩家飞机的碰撞
+				    dd.forEach(function(mon,wen){
+					if(mon.x+mon.w<me.x||mon.x>me.x+me.w||mon.y+mon.h<me.y||mon.y>me.y+me.h){
+						console.log("dddddd");
+					}else{
+						console.log("被敌机的子弹打中了");
+						console.log("gggggggg"+getMen)
+						getMen++;
+						dtx.value=getMen;
+						boImg();
+						dd.splice(wen,1);
+						if(getM>0){
+						getM-=10;
+							
+						}else{
+					    console.log("游戏结束了");
+						clearInterval(tiome);
+						clearInterval(t);
+						clearInterval(td);
+						}
+						
+						
+						//dd.splice()
+					}
+				});
+			}
+			
+			function getPo(e){
+				mx=e.offsetX;
+				my=e.offsetY;
+			}
+			/*血量值:矩形*/
+//			function drawW(i){
+//				context.beginPath();
+//				context.rect(x,y,w,h);
+//				context.fillStyle=cl;
+//				context.globalAlpha=ca;
+//				context.fill();
+//				context.stroke();
+//				context.closePath();
+//			}
+			window.onload=function(){
+				can.onmousemove=getPo;
+				can.onmouseenter=getPo;
+				can.onclick=meZdC;
+			}
+		</script>
+	</body>
+</html>

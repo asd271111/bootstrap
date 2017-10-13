@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>抢红包</title>
+		<![if lt IE9]> 
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]
+	</head>
+	<body>
+		<canvas id="canv" width="1920" height="1080" style="background: url(img/bg.jpg)no-repeat;"></canvas>
+		<script>
+			var canvas=document.getElementById("canv");
+			var context=canvas.getContext("2d");
+			
+			var scW=canvas.w,scH=canvas.h;
+			var gameScreen=0;//记录当前所在的场景：开始界面：0，游戏主界面：1，结束界面：2
+			var starBtn={x:810,y:398,w:279,h:84};//开始按钮
+			var againBtn={x:660,y:398,w:279,h:84};//再玩一次按钮
+			var overBtn={x:960,y:398,w:279,h:84};//不完了按钮
+			var mclick;//记录鼠标的位置
+			var hbs=[];//存储红包事件
+			var ybs=[];//元宝存储事件
+			var hbNum=0;//记录红包数量
+			var tline=0;//时间条
+			
+			var scShow={x:810,y:250,w:345,h:399};
+			var score=0;//记录点击红包成绩
+			var isShow=0;//用来控制红包展示时间
+			
+			var mx,my;
+			
+			
+			var scImg=new Image();//结果红包展示
+			scImg.src="img/hb1.png";
+			
+			var starBtnImg=new Image();//开始按钮
+			starBtnImg.src="img/bt2.png";
+			
+			var bgImg=new Image();//背景
+			bgImg.src="img/bg.jpg";
+			
+			var hbImg=new Image();//红包
+			hbImg.src="img/hb2.png";
+			
+			var ybImg=new Image();//元宝
+			ybImg.src="img/yuanbao.png";
+			
+			function mouseClick(e){//鼠标点击时触发事件
+				var mx=e.offsetX;
+				var my=e.offsetY;
+			    mclick={x:mx,y:my};
+				
+				if(gameScreen==0){
+					if(clickCheck(mclick,starBtn)){
+					gameScreen=1;//执行第二幕：游戏主界面						
+					console.log("gggg");
+					}
+				}else if(gameScreen==1){
+					clickHb();
+					clickYb();
+										
+				}else if(gameScreen==2){
+					if(clickCheck(mclick,againBtn)){
+						gameScreen=1;
+						tline=0;
+					}
+					if(clickCheck(mclick,overBtn)){
+						gameScreen=0;
+						drawBg();
+						gameStart();
+					}
+				}
+			}
+			function clickCheck(m,n){//m是鼠标对象，n触发区域，点击事件的 判断
+				if(m.x>n.w&&m.x<n.x+n.w&&m.y>n.y&&m.y<n.y+n.h){
+//					console.log("点击中了");
+					return true;
+				}else{
+					return false;
+//					console.log("没有点击中");
+				}
+			}
+			function gameStart(){//生成文字
+				/*
+				 * 开始界面的元素：开始按钮
+				 * 点击开始按钮，跳转游戏主场景，开始计时
+				 */
+				tline=0;
+				drawImg(starBtnImg,starBtn.x,starBtn.y,starBtn.w,starBtn.h);
+				context.font="32px 微软雅黑 bold";
+				context.fillStyle="#fff000";
+				context.fillText("开始游戏",880,450);
+				context.textAlign="center";
+				context.fill();
+				context.closePath();
+				console.log("写字了");
+			}
+			function drawImg(soure,x,y,w,h){//把图片渲染到画布上
+				context.drawImage(soure,x,y,w,h);
+			}
+			function drawBg(){//生成背景
+				drawImg(bgImg,0,0,1920,1080);
+			}
+			function drawHb(){//生成红包数据
+				var hx=parseInt(Math.random()*canvas.width);
+				var hy=0;
+				var hw=190*0.5;
+				var hh=190*0.5;
+				var hb={x:hx,y:hy,w:hw,h:hh}
+				hbs.push(hb);
+			}
+			function drawYb(){//生成元宝数据
+				var yx=parseInt(Math.random()*canvas.width);
+				var yy=0;
+				var yw=192*0.5;
+				var yh=125*0.5;
+				var yb={x:yx,y:yy,w:yw,h:yh}
+				ybs.push(yb);
+			}
+			function moveHb(){//移动红包
+				hbs.forEach(function(val,index){
+					val.x+=2;
+					val.y+=15;
+					drawImg(hbImg,val.x,val.y,val.w,val.h);
+				})
+			}
+			function moveYb(){//移动元宝
+				ybs.forEach(function(val,index){
+					val.x+=3;
+					val.y+=10;
+					drawImg(ybImg,val.x,val.y,val.w,val.h);
+				})
+			}
+			
+			function clickHb(){//红包点击触发事件
+				hbs.forEach(function(val,index){
+					if(clickCheck(mclick,val)){
+						hbNum++;
+						hbs.splice(index,1);
+						console.log(hbNum);
+						heClick();
+						drawScore();
+						isShow=1;
+					}
+				})
+				
+			}
+			var t;
+			function clickYb(){//元宝点击触发事件
+				ybs.forEach(function(val,index){
+					if(clickCheck(mclick,val)){
+						hbNum++;
+						ybs.splice(index,1);
+						console.log(hbNum);
+						//heClick();
+//					   var n=parseInt(Math.random()*1000);//随机函数来获取数组序号：1/7
+//				        t=getScore(n);
+//				       console.log("tttttttt"+t);
+				        heClick();
+						drawScore();
+						isShow=1;
+				
+					}
+				})
+				
+			}
+			function oclickMove(e){
+				mx=e.offsetX;
+				my=e.offsetY;
+				drawScore(mx,my);
+			}
+			var score=["0.1","0.4","2","1","3","5","50","100"];
+			var n;
+			var t;
+			var j;
+			function heClick(){//黑盒操作；先获得数组的下标，在把下标传给drawScore
+				 n=parseInt(Math.random()*1000);//随机函数来获取数组序号：1/7
+				 t=getScore(n);
+				console.log("tttttttt"+t);
+				// j=score[t];
+				
+				
+			}
+			function randomNum(i,j){
+				i=i||0;// 初始化为0，最小值
+				j=j||100;//最大值
+				var m=parseInt(Math.random()*(j-i+1)+i);//用来参数非零的整数范围
+				return m;
+			}
+			function getScore(sc){//用于几率的判断
+				if(sc>=0&&sc<700){
+					return 0;
+				}else if(sc>=700&&sc<900){
+					var m=randomNum(1,3);
+					return m;
+				}else if(sc>=900&&sc<998){
+					var d=randomNum(4,6);
+					return d;
+				}else if(sc>=998&&sc<1000){
+					return 7;
+				}
+			}
+			
+			function drawScore(){//结果红包展示	
+				drawImg(scImg,scShow.x,scShow.y,scShow.w,scShow.h);
+				context.font="32px 微软雅黑 bold";
+				context.fillStyle="#fff000";
+				context.fillText("+"+score[t],990,450);
+				context.textAlign="center";
+				context.fill();
+				context.closePath();
+			}
+			function timeLine(){//计时器，当线的长度到达屏幕的宽度时，计时器结束
+				/*
+				 定义一个全局变量tLine计算时间；
+				 在游戏时间计时器调用timeLine函数
+				 */
+				tline+=2;
+				if(tline<=1920){
+					context.beginPath();
+					context.moveTo(0,0);
+					context.lineTo(tline,0);
+					context.strokeStyle="greenyellow";
+					context.lineWidth=20;
+					context.stroke();
+					context.closePath();
+				}else{
+					gameScreen=2;
+					scoreScreen();
+				}
+				if(isShow>0){
+					drawScore();
+					
+				}
+			}
+			
+			var isShowTime=setInterval(function(){//控制结果展示红包的停留时间
+				if(isShow<5&&isShow>0){
+					isShow++;
+				}else{
+					isShow=0;
+				}
+			},100);
+			
+			var gameTime=setInterval(function(){
+				if(gameScreen==1){
+					drawBg();
+					moveHb();
+					moveYb();
+					timeLine();
+				}
+			},20)
+			var hbTime=setInterval(function(){
+				drawHb();
+				drawYb();
+			},600);
+			window.onload=function(){
+				gameStart();//第一幕
+				canvas.onclick=mouseClick;
+			}
+			//第三幕
+			function scoreScreen(x){
+				x=x||0;
+				context.beginPath();
+				context.fillStyle="rgba(0,0,0,0.5)";
+				context.rect(0,0,1920,1080);
+				context.fill();
+				context.closePath();
+				
+				context.beginPath();
+				drawImg(starBtnImg,againBtn.x,againBtn.y,againBtn.w,againBtn.h);
+				context.font="32px 微软雅黑 bold";
+				context.fillStyle="#fff000";
+				context.fillText("再玩一次",790,450);
+				context.textAlign="center";
+				context.fill();
+				context.closePath();
+				
+				
+				context.beginPath();
+				drawImg(starBtnImg,overBtn.x,overBtn.y,overBtn.w,overBtn.h);
+				context.font="32px 微软雅黑 bold";
+				context.fillStyle="#fff000";
+				context.fillText("不玩了",1100,450);
+				context.textAlign="center";
+				context.fill();
+				context.closePath();
+				
+				context.beginPath();
+				context.font="42px 微软雅黑 bold";
+				context.fillStyle="#fff000";
+				context.fillText("您获得的红包为"+x,900,320);
+				context.textAlign="center";
+				context.fill();
+				context.closePath();
+			}
+		</script>
+	</body>
+</html>
