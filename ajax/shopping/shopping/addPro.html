@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>添加商品</title>
+		<style>
+			*{ margin: 0; padding: 0;}
+			/*body{ background: antiquewhite; }*/
+			.formWrap{ width: 250px; padding: 25px 40px; border: 1px solid #333; /*background: tan;*/ margin: 50px auto;}
+			input{ display: block; border: none; outline: none;}
+			h2{ text-align: center; margin-bottom: 35px; font-size: 28px; font-weight: 700;}
+			p{ font-size: 20px; line-height: 40px; margin-top: 10px;}
+			input[type=text],input[type=number]{ width: 200px; height: 27px; border-radius: 3px; padding: 5px; background: #F0F1F1;}
+			input[type=button]{ width: 210px; height: 37px; margin: 30px 0 40px; font-size: 18px; color: #f0f1f1; font-weight: 700; background: #999; cursor: pointer; transition: 0.4s; border-radius: 3px;}
+			input[type=text]:focus,input[type=number]:focus{ background: #cdcdcd;}
+			input[type=button]:hover{ background: yellowgreen;}
+		</style>
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script>
+			$(function(){
+				var arr=[];
+				$("#addBtn").click(function(){
+					var proName=$("#proName").val();
+					var proPrice=$("#proPrice").val();
+					var proNum=$("#proNum").val();
+					console.log(proName+","+proPrice+","+proNum);
+					var obj={};
+					obj.proName=proName;
+					obj.proPrice=proPrice;
+					obj.proNum=proNum;
+					
+					arr.push(obj);
+					
+					$.post("addPro.php",{
+						jsonData:arr
+					},function(data){
+						console.log(data);
+					})
+					alert("添加成功！")
+				})
+				
+				$("#proNum").change(function(){
+					if($(this).val()<0){ 
+						$(this).val(0);
+					}else{
+						console.log($(this).val());
+					}
+				})
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div class="formWrap">
+			<h2>商品添加</h2>
+			<p>商品名称：</p>
+			<input type="text" id="proName" name="proName" placeholder="请输入商品名称" />
+			<p>商品价格：</p>
+			<input type="text" id="proPrice" name="proPrice" placeholder="请输入商品价格" />
+			<p>商品数量：</p>
+			<input type="number" id="proNum" name="proNum" placeholder="请输入商品数量" />
+			<input type="button" name="addBtn" id="addBtn" value="添加商品" />
+		</div>
+	</body>
+</html>

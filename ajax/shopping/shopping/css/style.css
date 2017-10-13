@@ -1,0 +1,24 @@
+
+			body,table,input,div,p,ul,li,h1,h2,h3,h4,h5,h6,span,a,i,tr,th,thead,tbody,td{ margin: 0; padding: 0;}
+			/*body{ background: antiquewhite; }*/
+			a{ text-decoration: none;}
+			.tableWrap{ width: 450px; border: 1px solid saddlebrown; /*background: papayawhip;*/ margin: 50px auto;}
+			table{ width: 100%;}
+			table tr{ height: 40px;}
+			table td{ text-align: center;}
+			input{ display: inline-block; border: none; outline: none;}
+			input[type=text],input[type=number]{ width: 30px; height: 27px; border-radius: 3px; padding: 5px;}
+			input[type=text]{ background: none;}
+			a{ width: 50px; height: 27px; display: block; text-align: center; line-height: 27px; font-size: 14px; font-weight: normal; background: paleturquoise; cursor: pointer; transition: 0.4s; border-radius: 3px; margin: 0 auto; color: #000;}
+			input[type=number]:focus{ background: yellowgreen;}
+			a:hover{ background: yellowgreen;}
+			
+			
+			.formWrap{ width: 250px; padding: 25px 40px; border: 1px solid saddlebrown; background: tan; margin: 50px auto;}
+			input{ display: block; border: none; outline: none;}
+			h2{ text-align: center; margin-bottom: 35px; font-size: 28px; font-weight: 700;}
+			p{ font-size: 20px; line-height: 40px; margin-top: 10px;}
+			
+			input[type=button]{ width: 210px; height: 37px; margin: 30px 0 40px; font-size: 18px; font-weight: 700; background: paleturquoise; cursor: pointer; transition: 0.4s; border-radius: 3px;}
+			input[type=text]:focus,input[type=number]:focus{ background: yellowgreen;}
+			input[type=button]:hover{ background: yellowgreen;}

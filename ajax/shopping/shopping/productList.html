@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商品列表</title>
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<link rel="stylesheet" href="css/style.css" />
+		<script>
+			$(function(){
+				function getData(){
+					var arr=[];
+					var i=0;
+					$.getJSON("proData.json",function(data){
+						$.each(data, function(index,con) {
+//							console.log(index+":"+con.proName+","+con.proPrice+","+con.proNum);
+							var liN;
+							i++;
+							liN="<tr><td>";
+							liN+=con.proName+"</td><td>";
+							liN+=con.proPrice+"</td><td>";
+							liN+="<input type='text' id='proNum"+i+"' value='"+con.proNum+"' readonly='readonly' /></td><td>";
+							liN+="<input type='number' value='0' class='bn buyNum"+i+"' /></td>";
+							liN+="<td><a href='javascrpit:void(0)' class='buyBtn"+i+"'>购买</a></td></tr>";
+							$("table tbody").append(liN);
+						});
+						
+						$(".tableWrap table tbody tr").on("click","a",function(){
+							var tdName=$(this).prop("class");
+							var idx=tdName.slice(6);
+							var buyNum=$(".buyNum"+idx).val();
+							console.log(idx);
+							console.log(data[idx-1]['proName']+","+data[idx-1]['proPrice']+","+data[idx-1]['proNum']+","+buyNum);
+							var restNum=$("#proNum"+idx).val()-$(".buyNum"+idx).val();
+							data[idx-1]['proNum']=$("#proNum"+idx).val(restNum);
+							
+							console.log(restNum)
+							if (restNum<0) {
+								$("#proNum"+idx).val(0);
+							}else{
+								if($(".buyNum"+idx).val()<=0){
+									
+								}else{
+									var obj={};
+									obj.proName=data[idx-1]['proName'];
+									obj.proPrice=data[idx-1]['proPrice'];
+									obj.proNum=restNum;
+									obj.buyNum=buyNum;
+									arr.push(obj);
+									
+									$.post("buyList.php",{
+										jsonData:arr
+									},function(data){
+										console.log(data);
+									});
+								
+								}
+							
+							}
+							
+						});
+						
+						$(".tableWrap table tbody tr").on("change",".bn",function(){
+							var tdName=$(this).prop("class");
+							var idx=tdName.slice(9);
+//							console.log(data[idx-1]['proNum']);
+							if($(this).val()<0){ 
+								$(this).val(0);
+							}else if($(this).val()>$("#proNum"+idx).val()){
+								$(this).val($("#proNum"+idx).val());
+							}else{
+								
+								console.log($("#proNum"+idx).val());
+							}
+						});
+						
+					});
+				}
+				getData();
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div class="tableWrap">
+			<h2>商品显示列表</h2>
+			<table border="1" cellspacing="0" cellpadding="0">
+				<thead>
+					<tr>
+						<th>商品名称</th>
+						<th>商品价格</th>
+						<th>商品剩余</th>
+						<th>购买数量</th>
+						<th></th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<!--<tr>
+						<td>apple</td>
+						<td>600</td>
+						<td><input type="text" value="" readonly="readonly" /></td>
+						<td><a href="#" class="buyBtn">购买</a></td>
+					</tr>-->
+					<!--<tr>
+						<td>orange</td>
+						<td>50</td>
+						<td><input type="text" value="" readonly="readonly" /></td>
+						<td><a href="#" class="buyBtn">购买</a></td>
+					</tr>-->
+				</tbody>
+				
+			</table>
+			
+		</div>
+		
+	</body>
+</html>

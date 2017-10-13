@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>聊天窗口</title>
+		<script src="js/jquery-1.11.0.js"></script>
+		<script src="js/script.js"></script>
+		<link rel="stylesheet" href="css/style.css" />
+		<script>
+			$(function(){
+				var user=window.location.href.split("=")[1];
+				/*("=",1),获取的是地址里的全部内容如：http://localhost/chatMsg/chat.html?admin
+				 ("=")[1]，是获取=号后面的第一个内容
+				 * */
+				$("#user").text(user);
+				
+				//获取时间
+				function getTime(){
+					var hh=new Date().getHours();
+					var mm=new  Date().getMinutes();
+					if(mm<10){
+						mm="0"+mm;
+					}
+					var tt=hh+":"+mm;
+					return tt;
+					
+				}
+				$(".time").html();
+				$("#subminBtn").click(function(){
+					console.log(getTime());
+					var con=$("#contentInput").val();//获取文本框输入的值
+					//获时间输入框的值
+					
+				if(con){//判断当前输入框是否输入内容
+					$.post("chat.php",{//使用ajax的异步传送
+						user:user,
+						msg:con,
+						msgtime:getTime()
+					},function(data){
+						alert(data)
+						isHasNew=true;
+					})
+				}else{
+					alert("聊天内容不能为空！");
+				}
+			})
+				/*提取数据*/
+				isHasNew=true;
+				function getMsg(){
+					if(isHasNew){
+						$(".screen").html("");
+						$.post("message.php",function(data){
+//							console.log(data);
+//							$(".screen").append(data);
+							/*使用json文件*/
+							$.getJSON("chatdata.json",function(data){
+								$.each(data,function(index,con){//遍历当前属性的内容	
+								var str="<div class='content'><p class='time'>"+con.msgtime;
+									str+="</p><p class='txt'><strong>"+con.user+":</strong><span>"+con.msg;
+									str+="</span></p></div>";
+									$(".screen").append(str);
+							    });
+						   })
+						})
+						isHasNew=false;
+					}
+				}
+				var t=setInterval(function(){
+					getMsg();
+				},400);
+				
+				
+				
+				
+	})
+		</script>
+	</head>
+	<body>
+		<div class="regWrap">
+			<h2>聊天窗口</h2>
+			<div class="screen">
+				<div class="content">
+					<p class="time" id="time"></p>
+					<p class="txt">
+						<strong>张三：</strong><span> hello!</span>
+					</p>
+				</div>
+			</div>
+			<form>
+				<p><label for="user">用户名：</label><span id="user">张三 </span></p>
+				<textarea id="contentInput" class="contentInput"></textarea>
+				<p><input type="button" value="发送信息" id="subminBtn"/></p>
+			</form>
+		</div>
+	</body>
+
+
+	
+</html>

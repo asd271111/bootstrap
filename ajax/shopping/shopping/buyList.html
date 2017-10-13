@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<style>
+			body,table,input,div,p,ul,li,h1,h2,h3,h4,h5,h6,span,a,i,tr,th,thead,tbody,td{ margin: 0; padding: 0;}
+			body{ background: antiquewhite; }
+			a{ text-decoration: none; color: #000;}
+			.tableWrap{ width: 450px; border: 1px solid saddlebrown; background: papayawhip; margin: 50px auto;}
+			table{ width: 100%;}
+			table tr{ height: 40px;}
+			table td{ text-align: center;}
+			input{ display: inline-block; border: none; outline: none;}
+			input[type=text]/*,input[type=number]*/{ width: 20px; height: 27px; border-radius: 3px; padding: 5px; background: none;}
+			.buyBtn{ width: 50px; height: 27px; display: block; text-align: center; line-height: 27px; font-size: 14px; font-weight: normal; background: paleturquoise; cursor: pointer; transition: 0.4s; border-radius: 3px; margin: 0 auto; color: #000;}
+			/*input[type=number]:focus{ background: lightyellow;}*/
+			.buyBtn:hover{ background: powderblue;}
+			p{ font-size: 20px; font-weight: bold; text-align: right; line-height: 30px; padding: 9px;}
+			.allBtn{ float: left; display: inline-block;}
+			.delBtn{ float: right; display: inline-block;}
+		</style>
+		<script>
+			$(function(){
+				$.getJSON("buyList.json",function(data){
+					$.each(data,function(index,con){
+						var liN;
+						liN="<tr><td><input type='checkbox' /></td><td>";
+						liN+=con.proName+"</td><td>";
+						liN+=con.proPrice+"</td><td>";
+						liN+=con.buyNum+"</td></tr>";
+						$("table tbody").append(liN);
+					});
+					
+					/* 计算总金额 */
+					totalPrice();
+					function totalPrice(){
+						sum=0;
+						$("table tbody tr").each(function(){
+							sum+=parseInt($(this).children("td:nth-child(3)").text())*parseInt($(this).children("td:nth-child(4)").text());
+						});
+						$("p #totalNum").text(sum);
+					}
+					
+					/* 全选 */
+					$("#allBtn").click(function(){
+						$("table tbody tr").find("td").each(function(){
+							$(this).children("input").prop("checked",true);
+						});
+					});
+					
+					
+					/* 删除 */
+					$("#delBtn").click(function(){
+						$("table tbody tr").find("td").each(function(){
+							if($(this).children("input").prop("checked")==true){
+								$(this).parent().remove();
+							}
+							totalPrice();
+						});
+					});
+					
+				});
+			})
+		</script>
+		
+	</head>
+	<body>
+		<div class="tableWrap">
+			<p><a href="#" class="allBtn" id="allBtn">全选</a><a href="#" class="delBtn" id="delBtn">删除</a></p>
+			<table border="1" cellspacing="0" cellpadding="0">
+				<thead>
+					<tr>
+						<th></th>
+						<th>商品名称</th>
+						<th>商品价格</th>
+						<th>数量</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<!--<tr>
+						<td><input type="checkbox" /></td>
+						<td>apple</td>
+						<td>600</td>
+						<td><input type="text" value="" readonly="readonly" /></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" /></td>
+						<td>orange</td>
+						<td>50</td>
+						<td><input type="text" value="" readonly="readonly" /></td>
+					</tr>-->
+				</tbody>
+				
+			</table>
+			<div class="priceBox">
+				<p>结算：<span id="totalNum">/span></p>
+			</div>
+		</div>
+	</body>
+</html>
