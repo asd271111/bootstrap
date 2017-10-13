@@ -1,0 +1,183 @@
+$navWorkColor:#c6e6e9;
+$fontSize:16;
+/*
+ * 
+ header{ height: 67px; background: rgb(2,72,123); border-bottom: 1px solid rgb(80,156,205);}
+header nav li{ padding: 1.5rem 2.25rem; font-size: 0.875rem; color: $navWorkColor; font-weight: 700; float: left;}
+header nav li:first-child{ padding-left: 0;}
+header nav li:last-child{ padding-right: 0;}
+header nav li a{ color: $navWorkColor;}
+header nav li a:hover{ color: #fff;}
+.logo{ width: 60px; height: 66px; overflow: hidden; background: url(../img/sprite.png) no-repeat -68px 0px; display: block;}
+.logo:hover{ background: url(../img/sprite.png) no-repeat -137px 0px;}*/
+
+header{
+    height: 67px; background: rgb(2,72,123); border-bottom: 1px solid rgb(80,156,205);
+    nav{
+        li{
+            padding: (24/$fontSize)+rem (36/$fontSize)+rem; font-size: (14/$fontSize)+rem; color: $navWorkColor; font-weight: 700; float: left;
+            &:first-child{
+                padding-left: 0;
+            }
+            &:last-child{
+                padding-right: 0;
+            }
+            a{
+                color: $navWorkColor;
+                &:hover{
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.logo{
+    width: 60px; height: 66px; overflow: hidden; background: url(../img/sprite.png) no-repeat -68px 0px; display: block;
+    &:hover{
+        background: url(../img/sprite.png) no-repeat -137px 0px;
+    }
+}
+
+
+/* banner */
+//.bannerWrap{ height: 733px; background: url(../img/title_home.png) no-repeat center bottom,url(../img/background.jpg) no-repeat center top; background-size: contain,auto; background-color: rgb(79,158,195); position: relative; padding-top: 500px; box-sizing: border-box; margin-bottom: 50px;}
+//.bannerWrap:before{ width: 100%; height: 30px; display: block; content: ""; position: absolute; background: url(../img/bannerBj.png) repeat-x center 20px; bottom: 0; left: 0;} /* 后一层波浪 */
+//.bannerWrap:after{ width: 100%; height: 200px; display: block; content: ""; background: url(../img/screenshots_home.png) no-repeat center bottom; background-size: contain; position: absolute; bottom: -50px; left: 0; z-index: 10;} /* 中间夹层插图 */
+//.b1{ width: 100%; height: 30px; background: url(../img/bannerBj.png) repeat-x center bottom; position: absolute; bottom: -50px; left: 0; z-index: 50;}
+//.bbj{ width: 100%; height: 50px; background: rgb(243,248,254); position: absolute; bottom: -50px; left: 0; z-index: 5;} /* 波浪过渡蓝色背景 */
+
+$bannerIndex:5;
+
+@mixin banner-con{
+    width: 100%;
+    display: block; 
+    content: ""; 
+    position: absolute;
+    left: 0;
+}
+
+.bannerWrap{
+    height: 733px;  
+    background:{
+        image:url(../img/title_home.png),url(../img/background.jpg);
+        repeat:no-repeat;
+        position: center bottom,center top;
+        size: contain,auto;
+    };
+    position: relative; 
+    padding-top: 500px; 
+    box-sizing: border-box; 
+    margin-bottom: 50px;
+    
+    &:before{
+        @include banner-con;
+        height: 30px; 
+        background:{
+            image:url(../img/bannerBj.png); 
+            repeat:repeat-x; 
+            position: center 20px; 
+            
+        } 
+        bottom: 0; 
+    }
+    
+    &:after{
+        @include banner-con;
+        height: 200px; 
+        background:{
+            image:url(../img/screenshots_home.png); 
+            repeat:no-repeat; 
+            position: center bottom; 
+            size: contain;
+        } 
+        bottom: -50px; 
+        z-index: $bannerIndex+5;
+    }
+}
+
+@mixin linkColor($normal,$hover,$visited:$normal){
+    color:$normal;
+    &:hover{ color: $hover;}
+    &:visited{ color: $visited;}
+}
+
+.link{
+    font-size: 26px;
+    font-weight: bold;
+    @include linkColor(red,blue);
+}
+
+
+//.b1{ width: 100%; height: 30px; background: url(../img/bannerBj.png) repeat-x center bottom; position: absolute; bottom: -50px; left: 0; z-index: 50;}
+//.bbj{ width: 100%; height: 50px; background: rgb(243,248,254); position: absolute; bottom: -50px; left: 0; z-index: 5;} /* 波浪过渡蓝色背景 */
+
+.b1{ width: 100%; height: 30px; background: url(../img/bannerBj.png) repeat-x center bottom; position: absolute; bottom: -50px; left: 0; z-index: $bannerIndex+10;}
+
+.bbj{ width: 100%; height: 50px; background: rgb(243,248,254); position: absolute; bottom: -50px; left: 0; z-index: $bannerIndex;
+}
+
+
+.fontInner{
+    content: "foo"+txt;
+    font-family: sans+"-serif";
+}
+/*
+ * 字符串参与到运算中，
+ * 当带引号的字符串作为加法开头的时候，结果将形成带引号的字符串，
+ * 否则如果以不带引号的字符串作为加法的开头，结果将形成不带引号的字符串
+ */
+
+/* 减法 */
+$pleft:20px;
+.tab{
+    width: 400px - $pleft;
+}
+.tab2{
+    height: 30px+$pleft;
+}
+
+
+/* 乘法 */
+.imglist{
+    $itemMarginR:20px;
+    $item:160px;
+    width: ($item+$itemMarginR)*5;
+    li{
+        width: $item;
+    }
+}
+
+
+/* 继承性很强，.boxWrap拥有的样式，包括伪类、层级选择器等样式都会继承给.boxInner */
+.boxWrap{ border: 1px solid salmon;}
+.boxWrap:hover{ background: #92BFDA;}
+.boxInner{
+    @extend .boxWrap;
+    color: seagreen;
+}
+
+
+.skill{
+    padding-top: 50px; background-size: contain;
+    li{
+        width: 20%; padding-top: 3.375rem; padding-bottom: 2.5rem; float: left; text-align: center; background: url(../img/proImg.png) no-repeat -5px 0px; overflow: hidden;
+        a{
+            color: #01284b;
+            i{ color: #066dad;}
+        }
+    }
+}
+.appList{
+    text-align: center; margin-bottom: 40px;
+    @extend .skill;
+    li{
+        span{
+            display: block; 
+            border-radius: 6px; overflow: hidden; margin-bottom: 5px;
+            img{
+                width: 100%; height: auto; display: block;
+            }
+        }
+    }
+}

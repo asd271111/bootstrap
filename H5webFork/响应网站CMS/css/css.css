@@ -1,0 +1,209 @@
+@charset "UTF-8";
+/*
+ * 
+ header{ height: 67px; background: rgb(2,72,123); border-bottom: 1px solid rgb(80,156,205);}
+header nav li{ padding: 1.5rem 2.25rem; font-size: 0.875rem; color: $navWorkColor; font-weight: 700; float: left;}
+header nav li:first-child{ padding-left: 0;}
+header nav li:last-child{ padding-right: 0;}
+header nav li a{ color: $navWorkColor;}
+header nav li a:hover{ color: #fff;}
+.logo{ width: 60px; height: 66px; overflow: hidden; background: url(../img/sprite.png) no-repeat -68px 0px; display: block;}
+.logo:hover{ background: url(../img/sprite.png) no-repeat -137px 0px;}*/
+header {
+  height: 67px;
+  background: #02487b;
+  border-bottom: 1px solid #509ccd;
+}
+
+header nav li {
+  padding: 1.5rem 2.25rem;
+  font-size: 0.875rem;
+  color: #c6e6e9;
+  font-weight: 700;
+  float: left;
+}
+
+header nav li:first-child {
+  padding-left: 0;
+}
+
+header nav li:last-child {
+  padding-right: 0;
+}
+
+header nav li a {
+  color: #c6e6e9;
+}
+
+header nav li a:hover {
+  color: #fff;
+}
+
+.logo {
+  width: 60px;
+  height: 66px;
+  overflow: hidden;
+  background: url(../img/sprite.png) no-repeat -68px 0px;
+  display: block;
+}
+
+.logo:hover {
+  background: url(../img/sprite.png) no-repeat -137px 0px;
+}
+
+/* banner */
+.bannerWrap {
+  height: 733px;
+  background-image: url(../img/title_home.png), url(../img/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center bottom,center top;
+  background-size: contain,auto;
+  position: relative;
+  padding-top: 500px;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+}
+
+.bannerWrap:before {
+  width: 100%;
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 30px;
+  background-image: url(../img/bannerBj.png);
+  background-repeat: repeat-x;
+  background-position: center 20px;
+  bottom: 0;
+}
+
+.bannerWrap:after {
+  width: 100%;
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 200px;
+  background-image: url(../img/screenshots_home.png);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain;
+  bottom: -50px;
+  z-index: 10;
+}
+
+.link {
+  font-size: 26px;
+  font-weight: bold;
+  color: red;
+}
+
+.link:hover {
+  color: blue;
+}
+
+.link:visited {
+  color: red;
+}
+
+.b1 {
+  width: 100%;
+  height: 30px;
+  background: url(../img/bannerBj.png) repeat-x center bottom;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  z-index: 15;
+}
+
+.bbj {
+  width: 100%;
+  height: 50px;
+  background: #f3f8fe;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  z-index: 5;
+}
+
+.fontInner {
+  content: "footxt";
+  font-family: sans-serif;
+}
+
+/*
+ * 字符串参与到运算中，
+ * 当带引号的字符串作为加法开头的时候，结果将形成带引号的字符串，
+ * 否则如果以不带引号的字符串作为加法的开头，结果将形成不带引号的字符串
+ */
+/* 减法 */
+.tab {
+  width: 380px;
+}
+
+.tab2 {
+  height: 50px;
+}
+
+/* 乘法 */
+.imglist {
+  width: 900px;
+}
+
+.imglist li {
+  width: 160px;
+}
+
+/* 继承性很强，.boxWrap拥有的样式，包括伪类、层级选择器等样式都会继承给.boxInner */
+.boxWrap, .boxInner {
+  border: 1px solid salmon;
+}
+
+.boxWrap:hover, .boxInner:hover {
+  background: #92BFDA;
+}
+
+.boxInner {
+  color: seagreen;
+}
+
+.skill, .appList {
+  padding-top: 50px;
+  background-size: contain;
+}
+
+.skill li, .appList li {
+  width: 20%;
+  padding-top: 3.375rem;
+  padding-bottom: 2.5rem;
+  float: left;
+  text-align: center;
+  background: url(../img/proImg.png) no-repeat -5px 0px;
+  overflow: hidden;
+}
+
+.skill li a, .appList li a {
+  color: #01284b;
+}
+
+.skill li a i, .appList li a i {
+  color: #066dad;
+}
+
+.appList {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.appList li span {
+  display: block;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.appList li span img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

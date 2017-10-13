@@ -1,0 +1,185 @@
+@charset "utf-8";
+/* 全局样式 */
+html{ font-size: 16px; font-size: 100%; font-size: 1rem;}
+body{ font-family:arial;}
+html,body,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,form,input,img,select,table,tr,td,th,article,br,hgroup,p,a,i,em,textarea,span,section,nav,header,footer { margin:0; padding:0;}
+ul li{list-style:none;}
+img{border:0px;}
+.clearfloat{clear:both;}
+.clearfloat:after{ content: ""; display: block; height: 0; font-size: 0; overflow: hidden; clear: both;}
+a{ text-decoration:none; color: #000;}
+a img{ border: 0;} /* IE重置 */
+h1, h2, h3, h4, h5, h6, strong, i, em, address, caption, cite, code, dfn, th, var {
+    font-weight: normal;
+    font-style: normal;
+}
+header,footer,nav,section,hgroup,wbr{ display: block;} /* html5兼容调试 */
+input{ outline: none; border: 0;}
+/* 标签选择器对标签原有的属性进行重置 */
+
+.center{ width: 896px; margin: 0 auto;}
+.fl{ float: left;}
+.fr{ float: right;}
+.linkBox { height: 60px; background: url(../img/linkBj.png) no-repeat center top; text-align: center; padding-top: 10px; box-sizing: border-box;}
+.linkBox a{ height: 40px; line-height: 40px; border-radius: 20px; padding: 0 20px; display: inline-block; font-size: 14px; font-weight: 700;}
+.yellowBtn{ background: -webkit-linear-gradient(-90deg,rgb(254,235,5) 0%,rgb(232,241,4) 0%);background: -moz-linear-gradient(-90deg,rgb(254,235,5) 0%,rgb(232,241,4) 0%);background: -ms-linear-gradient(-90deg,rgb(254,235,5) 0%,rgb(232,241,4) 0%); box-shadow: inset 0 -2px 0 rgb(93,86,0); color: rgb(4,53,91); text-shadow: 0 -1px 0 rgb(247,238,129); margin-right: 10px;}
+.yellowBtn i{ width: 18px; height: 18px; margin-right: 5px; background: url(../img/sprite.png) no-repeat -207px -19px; display: inline-block; position: relative; top: 4px;}
+.blueBtn{ background: -webkit-linear-gradient(-90deg,#4094c1 0%,#1e7bb3 0%);background: -moz-linear-gradient(-90deg,#4094c1 0%,#1e7bb3 0%);background: -ms-linear-gradient(-90deg,#4094c1 0%,#1e7bb3 0%);   box-shadow: inset 0 -2px 0 #02598e; color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,0.33);}
+
+
+
+/* header */
+header{ height: 67px; background: rgb(2,72,123); border-bottom: 1px solid rgb(80,156,205);}
+header nav li{ padding: 1.5rem 2.25rem; font-size: 0.875rem; color: #c6e6e9; font-weight: 700; float: left;}
+header nav li:first-child{ padding-left: 0;}
+header nav li:last-child{ padding-right: 0;}
+header nav li a{ color: #c6e6e9;}
+header nav li a:hover{ color: #fff;}
+.logo{ width: 60px; height: 66px; overflow: hidden; background: url(../img/sprite.png) no-repeat -68px 0px; display: block;}
+.logo:hover{ background: url(../img/sprite.png) no-repeat -137px 0px;}
+
+
+/* banner */
+.bannerWrap{ height: 733px; background: url(../img/title_home.png) no-repeat center bottom,url(../img/background.jpg) no-repeat center top; background-size: contain,auto; background-color: rgb(79,158,195); position: relative; padding-top: 500px; box-sizing: border-box; margin-bottom: 50px;}
+.bannerWrap:before{ width: 100%; height: 30px; display: block; content: ""; position: absolute; background: url(../img/bannerBj.png) repeat-x center 20px; bottom: 0; left: 0;} /* 后一层波浪 */
+.bannerWrap:after{ width: 100%; height: 200px; display: block; content: ""; background: url(../img/screenshots_home.png) no-repeat center bottom; background-size: contain; position: absolute; bottom: -50px; left: 0; z-index: 10;} /* 中间夹层插图 */
+.b1{ width: 100%; height: 30px; background: url(../img/bannerBj.png) repeat-x center bottom; position: absolute; bottom: -50px; left: 0; z-index: 50;}
+.bbj{ width: 100%; height: 50px; background: rgb(243,248,254); position: absolute; bottom: -50px; left: 0; z-index: 5;} /* 波浪过渡蓝色背景 */
+
+/* 产品列表 */
+.productWrap{ margin: 30px 0; font-weight: 700;}
+.proBtn{ text-align: center; border-top: 1px solid #d8e8f8; position: relative;}
+.proBtn:before{ height: 26px; width: 150px; display: block; content: ""; background: #fff; position: absolute; margin-left: -75px; top: -13px; left: 50%;}
+.proBtn a{ width: 140px; height: 26px; line-height: 2.2;/* 倍数关系，字体的2.2倍 */ font-size: 0.75rem; border-radius: 0.8125rem; text-align: center; display: inline-block; position: relative; top: -13px;} /* position:relative;相对于自己正常位置做起始点 */
+.skill{ padding-top: 50px; background-size: contain;}
+.skill li{ width: 20%; padding-top: 3.375rem; padding-bottom: 2.5rem; float: left; text-align: center; background: url(../img/proImg.png) no-repeat -5px 0px; overflow: hidden;}
+.skill li:nth-child(2){ background-position-x: -170px;}
+.skill li:nth-child(3){ background-position-x: -360px;}
+.skill li:nth-child(4){ background-position-x: -540px;}
+.skill li:nth-child(5){ background-position-x: -730px;}
+.skill li a{ color: #01284b;}
+.skill li a i{ color: #066dad;}
+
+/* app列表 */
+.appList{ text-align: center; margin-bottom: 40px; overflow: hidden;}
+.appList li{ width: 68px; display: inline-block; margin-right:19px; white-space: nowrap;/* 强制不换行 */ overflow: hidden;}
+.appList li span{ width: 100%; height: 0; padding-bottom: 100%; display: block; border-radius: 6px; overflow: hidden; margin-bottom: 5px;}
+.appList li span img{ width: 100%; height: auto; display: block;}
+.appList li a{ color: #066dad;}
+.appList li i{ color: #92bfda; font-style: normal;}
+
+.liImg{ width: 100%; height: auto; display: block;}
+
+/* 广告列表 */
+.adWrap{ margin-bottom: 50px;}
+.adWrap .linkBox{ background: none; border-top: 1px solid #D8E8F8; position: relative;}
+.adWrap .linkBox:before{ width: 360px; height: 4px; background: #fff; content: ""; display: block; position: absolute; left: 50%; margin-left: -180px; top: -2px; z-index: 5;}
+.adWrap .linkBox:after{ width: 300px; height: 56px; display: block; content: ""; background: #fff; position: absolute; left: 50%; margin-left: -150px; top: -28px; border: 1px solid #D8E8F8; border-radius: 30px; z-index: 10;}
+.adWrap .linkBox a{ position: relative; top: -30px; z-index: 15;}
+.adWrap img{ width: 100%; height: auto;}
+
+/* footer */
+footer{ /*height: 289px;*/ background: #012545 url(../img/background_doormat.jpg) repeat-x center top; font-weight: 700; font-size: 0.875rem; padding-bottom: 30px;}
+.footerTop{ /*height: 140px;*/ text-align: center; padding-top: 30px; padding-bottom: 50px;}
+.forkSoft{/* width: 436px;*/ width: 48.66071428%; height: 60px; line-height: 60px; border-radius: 30px; background: rgba(0,0,0,0.33); color: #C6E6E9; box-shadow: inset 0px -1px 0px rgba(255,255,255,0.25); display: inline-block; margin-bottom: 30px;}
+.forkSoft i{ width: 40px; height: 60px; background: url(../img/sprite.png) no-repeat -92px -82px; float: left; position: relative; left: 20px; top: 15px;}
+
+.footerTop .proBtn{ width: 48.66071428%; margin: 0 auto; border-top: 1px solid rgba(0,0,0,0.4); box-shadow: inset 0px 1px 0px rgba(255,255,255,0.2);}
+.footerTop .proBtn:before{ background: rgb(1,75,122);}
+
+.footerBottom nav{ text-align: right;}
+.footerBottom nav li{ padding: 22px 28px; display: inline-block;}
+.footerBottom nav li a{ color: #fff;}
+
+.linkMap{ font-size: 0.75rem; font-weight: normal; text-align: right; box-shadow: inset 0px 1px 0px rgba(255,255,255,0.1); border-top: 1px solid rgba(0,0,0,0.6); padding-top: 15px;}
+.linkMap a{ color: #fff; margin-left: 8px;}
+
+
+/* 屏幕宽度小于996px */
+@media only screen and (max-width:996px) {
+	.center{ width: 712px;}
+	header nav li{ padding: 24px 25px;}
+	.bannerWrap{ height: 583px; padding-top: 406px;}
+	.bannerWrap:after{ height: 140px;}
+	.skill li{ font-size: 12px; background-position-x: -5px;}
+	.skill li:nth-child(2){ background-position-x: -190px;}
+	.skill li:nth-child(3){ background-position-x: -380px;}
+	.skill li:nth-child(4){ background-position-x: -560px;}
+	.skill li:nth-child(5){ background-position-x: -740px;}
+	.appList{ height: 101px;}
+	.adWrap .linkBox:before{ width: 320px; margin-left: -160px;}
+	/*.forkSoft,.footerTop .proBtn{ width: 344px;}*/
+	.footerBottom nav li{ padding: 24px 13px;}
+	
+	
+	
+}
+
+/* 屏幕宽度小于768px */
+@media only screen and (max-width:768px){
+	html{ font-size: 0.875rem;}
+	.center{ width: 436px;}
+	.logo{ width: 56px;}
+	header nav{ width: 378px; padding-top: 10px;}
+	header nav li{ width: 116px; padding: 2px 0px 3px; text-align: left; font-weight: normal;}
+	.bannerWrap{ height: 127px; overflow: hidden; padding-top: 0; background-size: 436px,auto; background-position: center top;}
+	.bannerWrap:after,.bannerWrap:before,.bbj,.b1,.bannerWrap .linkBox{ display: none;}
+	.productWrap{ margin: 0 0 30px;}
+	.productWrap>.liImg{ margin-bottom: 15px;}
+	.skill{ padding-top: 0;}
+	.skill li{ /*font-size: 12px;*/ background-position-x: -30px;}
+	.skill li:nth-child(2){ background-position-x: -215px;}
+	.skill li:nth-child(3){ background-position-x: -400px;}
+	.skill li:nth-child(4){ background-position-x: -580px;}
+	.skill li:nth-child(5){ background-position-x: -770px;}
+	.adWrap>.linkBox{ display: none;}
+	
+	/*.forkSoft,.footerTop .proBtn{ width: 206px;}*/
+	.footerBottom nav{ width: 378px; text-align: left; font-weight: normal; padding-top: 10px;}
+	.footerBottom nav li{ width: 120px; height: 23px; line-height: 23px; /*font-size: 12px;*/ padding: 0px;}
+	
+}
+
+/* 屏幕宽度小于482px */
+@media only screen and (max-width:482px){
+	.center{ width: 252px;}
+	.logo{ display: none;}
+	header{ height: inherit; padding-bottom: 10px;}
+	header nav{ width: 100%;}
+	header .fr,.footerBottom .fr{ float: none;}
+	.bannerWrap{ height: 72px; background-size: 252px,auto; margin-bottom: 20px;}
+	.skill{ margin-bottom: 20px;}
+	.skill li{ height: 18px; width: 100%; float: none; padding: 10px 0; background: none; border-bottom: 1px solid #D8E8F8; font-size: 14px;}
+	.skill li:last-child{ border-bottom: none;}
+	.appList li{margin-right: 16px;}
+	footer{ height: inherit;}
+	.footerBottom nav{ width: 100%;}
+	.footerBottom nav li{ width: 80px; overflow: hidden;}
+}
+
+
+/* 
+ * 1.宽屏下的基础布局进行排版，使用px单位：
+ * 		A.最外层的宽度由子级撑出来，要设置子级到父级边界距离(用padding)
+ * 2.各个宽度屏幕下的css排版变化（媒体查询）
+ * 3.进行单位换算：
+ * 		A.如果单元子项宽度随着显示屏宽度改变实时变化，最外层用%，反之，只有达到指定宽度才发生排版变化，最外层用px
+ * 		B.单元子项的宽度不随着父级的宽度的变化而变化，不用换算成%
+ * 		C.如果单元子项高度不会随着宽度改变而变化，高度设置不变
+ * 		D.文字会随着屏幕变化而变化，建议在基础布局将文字换算成rem，在不用宽度下只需要改变html根标签的font-size大小
+ * 		E.如果图片是按比例进行收缩:widdth:100%; height:auto; display:block;
+ * 		F.如果模块宽度按比例进行变化，height:0; padding-bottom/padding-top与宽度的值保持原始比例，如果存在同时使用padding-bottom和padding-top，转换为rem */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
